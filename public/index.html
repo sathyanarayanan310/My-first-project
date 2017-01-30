@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Movie Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ .carousel-inner > .item > img,
+ .carousel-inner > .item > a > img {
+     width: 70%;
+     margin: auto;
+ }
+ </style>
+</head>
+<body  ng-app="movieApp">
+<header>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" class="navbar navbar-inverse">
+<!-- <div class="container-fluid"> -->
+<div class="navbar-header">
+<a class="navbar-brand" href=""><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a>
+<ul class="nav navbar-nav navbar-left" style="margin-top: 1%;" >
+                  <li><a href="#/">Home</a></li>
+                   <li><a href="#">About Us</a></li>
+                    <li><a href="#/booking">Booking</a></li>
+<div class="input-group" style="margin-top: 1%;">
+<input type="text" class="form-control" placeholder="Search">
+        <button class="btn btn-default" type="submit" style="margin-left: 100%;margin-top: -24%;">
+  <i class="glyphicon glyphicon-search"></i>
+</button>
+</div>
+</ul>
+
+<ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -25%;">
+  <li><a href="#">Location</a></li>
+  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
+    href="#">My Account<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Bookings</a></li>
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Cancellation</a></li>
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change account</a></li></ul></li>
+     <li><a href=""><span class="glyphicon glyphicon-log-in"></span>signin/signup</a></li>
+   </ul>
+</div>
+</nav>
+</header>
+
+
+  <div ng-view></div>
+  <footer>
+  </footer>
+<script type="text/javascript" src="/build/bundle.js"></script>
+</body>
+</html>
