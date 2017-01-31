@@ -3,6 +3,7 @@
 
 <head>
   <title>Movie Booking</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
@@ -28,6 +29,7 @@
                   <li><a href="#/">Home</a></li>
                    <li><a href="#">About Us</a></li>
                     <li><a href="#/booking">Booking</a></li>
+                      <li><a href="#/admin">admin</a></li>
 <div class="input-group" style="margin-top: 1%;">
 <input type="text" class="form-control" placeholder="Search">
         <button class="btn btn-default" type="submit" style="margin-left: 100%;margin-top: -24%;">
@@ -37,14 +39,23 @@
 </ul>
 
 <ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -25%;">
-  <li><a href="#">Location</a></li>
+  <li><a href="#">Location<span class="icon-location" class="glyphicons glyphicons-nearby-square"></span></a></li>
   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
     href="#">My Account<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+         <li class="dropdown-header">Your Profile</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Bookings</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Cancellation</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change account</a></li></ul></li>
-     <li><a href=""><span class="glyphicon glyphicon-log-in"></span>signin/signup</a></li>
+     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
+       href="#">Login<span class="caret"></span></a>
+       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+         <li class="dropdown-header">user login<span class="glyphicons glyphicons-log-in"<</span></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">signin/signup</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">settings</a></li>
+      <li class="divider"></li>
+      <li class="dropdown-header">admin login<span class="glyphicons glyphicons-log-in"></span></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">signin/signup</a></li></ul></li>
    </ul>
 </div>
 </nav>
