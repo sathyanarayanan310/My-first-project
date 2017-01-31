@@ -2,6 +2,10 @@
 var logger = require('morgan');
 var express = require('express');
 var routes = require('./routes/movie-crud');
+var routes1 = require('./routes/theater-crud');
+var routes2 = require('./routes/mapping-crud');
+var routes3 = require('./routes/showtime-crud');
+var routes4 = require('./routes/location-crud');
 
 var bodyParser=require('body-parser');
 
@@ -42,7 +46,10 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 app.use('/movie', routes)
-
+app.use('/the',routes1)
+app.use('/map',routes2)
+app.use('/show',routes3)
+app.use('/loc',routes4)
 
 // Only load this middleware in dev mode (important).
 if (app.get('env') === 'development') {
