@@ -1,13 +1,18 @@
 
-var logger = require('morgan');
+// var logger = require('morgan');
 var express = require('express');
+var app = express();
+var mongoose       = require('mongoose');
+var bodyParser     = require('body-parser');
+// var methodOverride = require('method-override');
+
 var routes = require('./routes/movie-crud');
 var routes1 = require('./routes/theater-crud');
 var routes2 = require('./routes/mapping-crud');
 var routes3 = require('./routes/showtime-crud');
 var routes4 = require('./routes/location-crud');
 
-var bodyParser=require('body-parser');
+// var bodyParser=require('body-parser');
 
 var path = require('path');
 // var cookieParser = require('cookie-parser');
@@ -16,7 +21,7 @@ var path = require('path');
 // var session = require('express-session')
 var app = express();
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({}));
 
 //Database
 var mongo = require('mongodb');
@@ -45,11 +50,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
-app.use('/movie', routes)
-app.use('/the',routes1)
-app.use('/map',routes2)
-app.use('/show',routes3)
-app.use('/loc',routes4)
+app.use('/m', routes);
+app.use('/the',routes1);
+app.use('/map',routes2);
+app.use('/show',routes3);
+app.use('/loc',routes4);
 
 // Only load this middleware in dev mode (important).
 if (app.get('env') === 'development') {
