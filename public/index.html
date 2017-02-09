@@ -11,25 +11,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
- .carousel-inner > .item > img,
- .carousel-inner > .item > a > img {
-     width: 70%;
-     margin: auto;
- }
- </style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
 </head>
 <body  ng-app="movieApp">
 <header>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" class="navbar navbar-inverse">
-<!-- <div class="container-fluid"> -->
+
 <div class="navbar-header">
-<a class="navbar-brand" href=""><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a>
+<a class="navbar-brand" href="#/"><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a>
 <ul class="nav navbar-nav navbar-left" style="margin-top: 1%;" >
                   <li><a href="#/">Home</a></li>
                    <li><a href="#">About Us</a></li>
-                    <li><a href="#/booking">Booking</a></li>
-                      <li><a href="#/admin">admin</a></li>
+                    <li><a href="#">Booking</a></li>
 <div class="input-group" style="margin-top: 1%;">
 <input type="text" class="form-control" placeholder="Search">
         <button class="btn btn-default" type="submit" style="margin-left: 100%;margin-top: -24%;">
@@ -38,7 +37,7 @@
 </div>
 </ul>
 
-<ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -25%;">
+<ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -33%;">
   <li><a href="#">Location<span class="icon-location" class="glyphicons glyphicons-nearby-square"></span></a></li>
   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
     href="#">My Account<span class="caret"></span></a>
@@ -55,7 +54,7 @@
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">settings</a></li>
       <li class="divider"></li>
       <li class="dropdown-header">admin login<span class="glyphicons glyphicons-log-in"></span></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">signin/signup</a></li></ul></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#/booking">signin/signup</a></li></ul></li>
    </ul>
 </div>
 </nav>
@@ -63,6 +62,7 @@
 
   <div ng-view></div>
   <footer>
+
   </footer>
 <script type="text/javascript" src="/build/bundle.js"></script>
 </body>
