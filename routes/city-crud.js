@@ -8,57 +8,57 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require('mongoose');
 
-var showSchema = mongoose.Schema({
-  showID:String,
-  showTime:String
+var citySchema = mongoose.Schema({
+  cityID:String,
+  cityName:String
  });
-var Show = mongoose.model('Show',showSchema, 'showTable');
+var City = mongoose.model('City',citySchema, 'cityTable');
 
 
-router.get('/showt', function (req, res) {
+router.get('/cty', function (req, res) {
     console.log("REACHED GET FUNCTION ON SERVER");
-    Show.find({}, function (err, docs) {
+    City.find({}, function (err, docs) {
          res.json(docs);
 
     });
 });
 
-router.get('/showt/:id', function (req, res) {
+router.get('/cty/:id', function (req, res) {
     console.log("REACHED GET ID FUNCTION ON SERVER");
-     Show.find({_id: req.params.id}, function (err, docs) {
+     City.find({_id: req.params.id}, function (err, docs) {
          res.json(docs);
 
     });
 });
 
-router.post('/showt', function(req, res){
+router.post('/cty', function(req, res){
   console.log(req.body);
-  var id = req.body.showID;
-  var time = req.body.showTime;
-var show1 = new Show({
-    showID:id,
-    showTime:time
+  var id = req.body.cityID;
+  var name = req.body.cityName;
+var city1 = new City({
+    cityID:id,
+    cityName:name
 });
 
-  show1.save(function(err, docs){
+  city1.save(function(err, docs){
     if ( err ) throw err;
-    console.log("show Saved Successfully");
+    console.log("city Saved Successfully");
     res.json(docs);
   });
 
   })
 
-router.delete('/showt/:id', function(req, res){
+router.delete('/cty/:id', function(req, res){
    console.log("REACHED Delete FUNCTION ON SERVER");
-      Show.remove({_id:req.params.id}, function(err, docs){
+      City.remove({_id:req.params.id}, function(err, docs){
         res.json(docs);
     });
 })
 
-router.put('/showt/:id', function(req, res){
+router.put('/cty/:id', function(req, res){
     console.log("REACHED PUT");
     console.log(req.body);
-  Show.findOneAndUpdate({_id:req.params.id}, req.body, function (err, data) {
+  City.findOneAndUpdate({_id:req.params.id}, req.body, function (err, data) {
       res.json(data);
     });
 })
