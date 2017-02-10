@@ -599,14 +599,16 @@ document.getElementById("demo").innerHTML = {{timing}};
 <td><input ng-model="movi.moviTitle"/></td>
 <td>
   <div>
-  <select id="yr" ng-model="movi.moviYear">
+    <input ng-model="movi.moviYear"/></td>
+
+  <!-- <select id="yr" ng-model="movi.moviYear">
     <option></option>
   <option value="2012">2012</option>
   <option value="2013">2013</option>
   <option value="2014">2014</option>
   <option value="2015">2015</option>
   <option value="2016">2016</option>
-  <option value="2017">2017</option></select></div></td>
+  <option value="2017">2017</option></select></div></td> -->
 
 <td><button ng-click="addMovie(movi)" class="btn btn-primary">Add</button></td>
 <td><button ng-click="updateMovie()" class="btn btn-primary">Update</button></td>

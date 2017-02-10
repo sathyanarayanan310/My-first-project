@@ -12,7 +12,26 @@
 </head> -->
 
 
-<div class="container" style="margin-top: 04%;">
+<div class="container" style="margin-top: 06%;">
+  <div class="row">
+
+  <div class="col-sm-5" style="margin-left: 22%;">
+
+    <input type="text" class="form-control" placeholder="Search Movie" ng-model="searching"/>
+    <div class="col-sm-2" style="margin-left: 88%;margin-top: -34px">
+<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" style="color:black"></span></button>
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-5">
+  <ul class="list-group">
+  <li ng-show="searching" ng-repeat="m in moviList | filter:searching" class="list-group-item">{{m.moviTitle}}</li>
+  </ul>
+  </div>
+</div>
+
+
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -56,7 +75,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
 
 <!-- <script>
 var app = angular.module("myApp", ["ngRoute"]);
@@ -76,24 +94,14 @@ app.config(function($routeProvider) {
 <!-- <div style="margin-left: 10%;">
 <form>
   <div style="padding:20px">
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="All" checked>All
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="Tamil">Tamil
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="Hindi">Hindi
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="Telugu">Telugu
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="Malayalam">Malayalam
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="moviRadio" name="optradio" value="English">English
-    </label>
+<select>
+      <option ng-model="moviRadio" name="optradio" value="All" checked>All</option>
+<option ng-model="moviRadio" name="optradio" value="Tamil" checked>Tamil</option>
+<option ng-model="moviRadio" name="optradio" value="English" checked>English</option>
+<option ng-model="moviRadio" name="optradio" value="Hindi" checked>Hindi</option>
+<option ng-model="moviRadio" name="optradio" value="Malayalam" checked>Malayalam</option>
+<option ng-model="moviRadio" name="optradio" value="Telugu" checked>Telugu</option>
+    </select>
 </div>
 
     <div ng-switch="moviRadio">
@@ -154,7 +162,7 @@ app.config(function($routeProvider) {
 </div>
   </form>
 </div> -->
-<div class="container" style="margin-top:3%">
+<!-- <div class="container" style="margin-top:3%">
 
 <h3>Language</h3>
   <div class="dropdown" ng-show="home">
@@ -176,6 +184,79 @@ app.config(function($routeProvider) {
 
         </ul>
       </div>
+</div>
+<div> -->
+<!-- <div>
+ <select ng-model="lang">
 
+ <option ng-repeat="m in moviList">{{m.moviLanguage}}</option>
+</select></div>
+<h2>Select The Movie</h2>
+ <div>
+ <select ng-model="talkie">
 
+ <option ng-repeat="m in moviList | filter:lang">{{movi.moviTitle}}</option>
+</select></div>
+<button onclick="document.getElementById('sk').value=<div ng-repeat="m in moviList | filter:talkie>{{m.moviTitle}} {{m.moviPoster}} {{m.moviLaguage}}"</div>submit</button>
+<div id="sk"></div>
+</div> -->
+
+<div class="container" style="margin-top: 03%;">
+
+               <select ng-model="movies">
+               <option value="all">All
+               <option value="Tamil">Tamil
+               <option value="English">English
+               <option value="Hindi">Hindi
+                 <option value="Telugu">Telugu
+                   <option value="Malayalam">Malayalam
+
+              </select>
+              <div ng-switch="movies">
+              <div ng-switch-when="all" >
+                <div ng-repeat="m in moviList">
+                  <img src="{{m.moviPoster}}" style="width:140px;height:140px;">
+                  <td>{{m.moviTitle}}</td>
+                  <td>{{m.moviYear}}</td>
+                  <td>{{m.moviActors}}</td>
+                  <td>{{m.moviLanguage}}</td>
+ <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+                </div></div>
+                <div ng-switch-when="Tamil" >
+                  <div ng-repeat="m in moviList|filter:'Tamil'">
+                    <img src="{{m.moviPoster}}" style="width:140px;height:140px;">
+                    <td>{{m.moviTitle}}</td>
+                    <td>{{m.moviYear}}</td>
+                    <td>{{m.moviActors}}</td>
+                    <td>{{m.moviLanguage}}</td>
+              <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+                  </div></div>
+                  <div ng-switch-when="English" >
+                      <div ng-repeat="m in moviList|filter:'English'">
+                        <img src="{{m.moviPoster}}" style="width:140px;height:140px;">
+                        <td>{{m.moviTitle}}</td>
+                        <td>{{m.moviYear}}</td>
+                        <td>{{m.moviActors}}</td>
+                        <td>{{m.moviLanguage}}</td>
+       <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+                      </div></div>
+                      <div ng-switch-when="Hindi" >
+                          <div ng-repeat="m in moviList|filter:'Hindi'">
+                            <img src="{{m.moviPoster}}" style="width:140px;height:140px;">
+                            <td>{{m.moviTitle}}</td>
+                            <td>{{m.moviYear}}</td>
+                            <td>{{m.moviActors}}</td>
+                            <td>{{m.moviLanguage}}</td>
+           <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+                          </div></div>
+                          <div ng-switch-when="Telugu" >
+                              <div ng-repeat="m in moviList|filter:'Telugu'">
+                                <img src="{{m.moviPoster}}" style="width:140px;height:140px;">
+                                <td>{{m.moviTitle}}</td>
+                                <td>{{m.moviYear}}</td>
+                                <td>{{m.moviActors}}</td>
+                                <td>{{m.moviLanguage}}</td>
+               <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+                              </div></div>
+                            </div>
 </div>
