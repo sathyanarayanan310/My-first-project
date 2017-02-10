@@ -72,10 +72,10 @@ $scope.addMovie = function(movi) {
   // var Year = document.getElementById("Yr").value;
   // console.log(Year);
 
-    $http.get(`http://www.omdbapi.com/?t=${movi.moviTitle} +'&y='+${movi.moviYear}&plot=short&r=json`).success(function(response) {
+    // $http.get(`http://www.omdbapi.com/?t=${movi.moviTitle} +'&y='+${movi.moviYear}&plot=short&r=json`).success(function(response) {
         //console.log(response);
 
-        //  $http.get('http://www.omdbapi.com/?t='+$scope.movi.Title+'&y='+$scope.movi.Year+'&plot=short&r=json').success(function (response){
+         $http.get('http://www.omdbapi.com/?t='+$scope.movi.moviTitle+'&y='+$scope.movi.moviYear+'&plot=short&r=json').success(function (response){
         var movieObj = {};
         for (var key in response) {
             if (key == 'Title' || key == 'Year' || key == 'Language' || key == 'Poster' || key == 'Genre' || key == 'Director' || key == 'Actors' || key == 'Plot') {

@@ -1,14 +1,18 @@
 'use strict';
 
-module.exports = function($scope) {
-  $scope.home = 'homepage';
-console,log($scope.home);
-};
+module.exports = function($scope, $http) {
 
-var refresh = function() {
+
+var r = function() {
     $http.get('/movie/movie').success(function(response) {
         console.log('READ IS SUCCESSFUL');
         $scope.moviList = response;
         $scope.movi = "";
     });
+  };
+    r();
+    $scope.bookingmovi = function(m){
+      console.log(m+ "booking is successfull");
+    };
+
 };
