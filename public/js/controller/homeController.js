@@ -10,9 +10,20 @@ var r = function() {
         $scope.movi = "";
     });
   };
+
     r();
     $scope.bookingmovi = function(m){
       console.log(m+ "booking is successfull");
     };
+
+};
+
+$scope.bookTicket= function (m) {
+
+
+                 $rootScope.bookedMovie=m;
+alert($rootScope.bookedMovie);
+$location.path('/moviebooking');
+      };
 
 };
