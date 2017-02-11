@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="form-group">
+  <form>
+<div class="form-inline>"
+  <label>Movie poster:</label>
+  <p>{{poster}}</p>
+<img src="{{movieinfo.moviPoster}}" style="width:225px;height:225px;">
+</div>
+
+<div class="form-inline">
+  <label>Movie Title:</label>
+   <p>{{movieinfo.moviTitle}}</p>
+</div>
+
+<div class="form-inline">
+<label>Location:</label>
+  <select ng-model="book.city">
+        <option ng-repeat="map in maplist">{{map.City}}</option>
+  </select>
+</div>
+
+<div class="form-inline">
+  <label>Theater name:</label>
+  <select ng-model="book.hall">
+        <option ng-repeat="map in maplist">{{map.Hall}}</option>
+  </select>
+</div>
+
+<div class="form-inline">
+<label>Date:</label>
+   <input type="date" ng-model="book.date"/>
+</div>
+
+<div class="form-inline">
+  <label>Show timing:</label>
+  <select ng-model="book.show">
+        <option ng-repeat="map in maplist">{{map.ShowTime}}</option>
+  </select>
+</div>
+</form>
+</div>
+</div>

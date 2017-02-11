@@ -220,7 +220,7 @@ app.config(function($routeProvider) {
                   <td>{{m.moviYear}}</td>
                   <td>{{m.moviActors}}</td>
                   <td>{{m.moviLanguage}}</td>
- <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+ <button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking">Book</button>
                 </div></div>
                 <div ng-switch-when="Tamil" >
                   <div ng-repeat="m in moviList|filter:'Tamil'">
@@ -229,7 +229,7 @@ app.config(function($routeProvider) {
                     <td>{{m.moviYear}}</td>
                     <td>{{m.moviActors}}</td>
                     <td>{{m.moviLanguage}}</td>
-              <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+              <button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking">Book</button>
                   </div></div>
                   <div ng-switch-when="English" >
                       <div ng-repeat="m in moviList|filter:'English'">
@@ -238,7 +238,7 @@ app.config(function($routeProvider) {
                         <td>{{m.moviYear}}</td>
                         <td>{{m.moviActors}}</td>
                         <td>{{m.moviLanguage}}</td>
-       <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+       <button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking">Book</button>
                       </div></div>
                       <div ng-switch-when="Hindi" >
                           <div ng-repeat="m in moviList|filter:'Hindi'">
@@ -247,7 +247,7 @@ app.config(function($routeProvider) {
                             <td>{{m.moviYear}}</td>
                             <td>{{m.moviActors}}</td>
                             <td>{{m.moviLanguage}}</td>
-           <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+           <button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking">Book</button>
                           </div></div>
                           <div ng-switch-when="Telugu" >
                               <div ng-repeat="m in moviList|filter:'Telugu'">
@@ -256,7 +256,7 @@ app.config(function($routeProvider) {
                                 <td>{{m.moviYear}}</td>
                                 <td>{{m.moviActors}}</td>
                                 <td>{{m.moviLanguage}}</td>
-               <button ng-click = "bookingmovi(m)" class="button  btn btn-primary">Book</button>
+               <button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking">Book</button>
                               </div></div>
                             </div>
 </div>
