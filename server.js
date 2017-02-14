@@ -11,7 +11,7 @@ var routesCity = require('./routes/city-crud');
 var routesTheater = require('./routes/theater-crud');
 var routesShow = require('./routes/showtime-crud');
 var routesMapping = require('./routes/mapping-crud');
-
+var routesBooking = require('./routes/booking-crud');
 // var bodyParser=require('body-parser');
 
 // var path = require('path');
@@ -28,6 +28,7 @@ app.use('/cty', routesCity);
 app.use('/theater', routesTheater);
 app.use('/showt', routesShow);
 app.use('/map', routesMapping);
+app.use('/book', routesBooking);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
