@@ -1,18 +1,8 @@
 'use strict';
 
-module.exports = function($scope, $http,$log, $rootScope) {
-  $scope.movieinfo = $rootScope.bookedMovie;
-  console.log($scope.movieinfo );
-
-//  $scope.poster=$rootScope.bookedPoster;
-// alert($scope.title);
-  // var refresh = function() {
-  //     $rootScope.bookedMovie=$scope.title;
-  //     $rootScope.bookedPoster=$scope.poster;
-  //     }
-  //     refresh();
-
-
+module.exports = function($scope, $http, $log, $rootScope) {
+  $scope.movieinfo = $rootScope.moviebooking;
+  console.log($scope.movieinfo);
 
   var refreshMape = function () {
         $http.get('/map/map').success(function (response) {
@@ -23,4 +13,5 @@ module.exports = function($scope, $http,$log, $rootScope) {
     };
 
     refreshMape();
+    
     };
