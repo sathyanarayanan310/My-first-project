@@ -114,7 +114,7 @@ var movieSchema = mongoose.Schema({
    moviGenre:String,
    moviDirector:String,
    moviActors:String,
-   moviPlot:String
+   moviPlot:String,
 
    });
 

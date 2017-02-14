@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 var citySchema = mongoose.Schema({
   cityID:String,
-  cityName:String
+  cityName:String,
  });
 var City = mongoose.model('City',citySchema, 'cityTable');
 
