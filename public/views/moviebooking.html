@@ -47,17 +47,17 @@
 </tr>
 <tr>
   <td><b>Selected seat</b></td>
-<td>{{rrr}}</td>
+<td><p id = "seating"></p></td>
   </table>
 </div>
 
-<script>
- var seat = document.getElementById('rrr');
-</script>
+<!-- <script>
+ var seat = document.getElementById('rrr').value;
+</script> -->
 <!-- <div class="table-responsive" style="margin-left: 10%;">
   <table class="table">
 
-  <!-- /*<style>
+  /*<style>
                  #myDIV {
    width: 100%;
    padding: 50px 0;
@@ -69,8 +69,7 @@
 
 
 
-<!-- <div class="table-responsive" style="margin-top: 10%;">
-  <table class="table">
+  <!-- <table class="table">
 <thead>
   <tr>
     <td></td>
@@ -86,157 +85,277 @@
     <td>10</td>
   </tr>
 </thead>
-</table>
-<div><h>Platinum</h></div>
-  <table class="table">
+</table> -->
+
+  <!-- <table class="table">
+
 <tbody>
 <tr>
-  <td>A</td>
-  <td><input ng-checked="" ng-model="seatNo" type="checkbox" value="A1"></td>
-  <td><input type="checkbox" value="A2"></td>
-  <td><input type="checkbox" value="A3"></td>
-  <td><input type="checkbox" value="A4"></td>
-  <td><input type="checkbox" value="A5"></td>
-  <td><input type="checkbox" value="A6"></td>
-  <td><input type="checkbox" value="A7"></td>
-  <td><input type="checkbox" value="A8"></td>
-  <td><input type="checkbox" value="A9"></td>
-  <td><input type="checkbox" value="A10"></td>
+
+  <!-- <td></td> -->
+  <!-- <table class="table">
+    <tbody>
+      <tr>
+  <td><input ng-click="count = count + 1" ng-init="count=" type="checkbox" value="A1">A1</td>
+  <td><input ng-click="count = count + 1" ng-init="count=" type="checkbox" value="A2">A2</td>
+  <td><input ng-change="seatclick(A3)" ng-model="seat()" type="checkbox" value="A3">A3</td>
+  <td><input ng-change="seatclick(A1)" ng-model="seat()" type="checkbox" value="A4">A4</td>
+  <td><input ng-change="seatclick(A1)" ng-model="seat()" type="checkbox" value="A5">A5</td>
+  <td><input ng-change="seatclick(A1)" ng-model="seat()" type="checkbox" value="A6">A6</td>
+  <td><input ng-checked="seatbook" ng-model="seat()" type="checkbox" value="A7">A7</td>
+  <td><input ng-checked="seatbook" ng-model="seat()" type="checkbox" value="A8">A8</td>
+  <td><input ng-checked="seatbook" ng-model="seat()" type="checkbox" value="A9">A9</td>
+  <td><input ng-checked="seatbook" ng-model="seat()" type="checkbox" value="A10">A10</td>
 </tr>
+</tbody>
 <tr>
-  <td>B</td>
-  <td><input type="checkbox" value="B1"></td>
-  <td><input type="checkbox" value="B2"></td>
-  <td><input type="checkbox" value="B3"></td>
-  <td><input type="checkbox" value="B4"></td>
-  <td><input type="checkbox" value="B5"></td>
-  <td><input type="checkbox" value="B6"></td>
-  <td><input type="checkbox" value="B7"></td>
-  <td><input type="checkbox" value="B8"></td>
-  <td><input type="checkbox" value="B9"></td>
-  <td><input type="checkbox" value="B10"></td>
+  <!-- <td>B</td> -->
+  <!-- <td><input type="checkbox" value="B1">B1</td>
+  <td><input type="checkbox" value="B2">B2</td>
+  <td><input type="checkbox" value="B3">B3</td>
+  <td><input type="checkbox" value="B4">B4</td>
+  <td><input type="checkbox" value="B5">B5</td>
+  <td><input type="checkbox" value="B6">B6</td>
+  <td><input type="checkbox" value="B7">B7</td>
+  <td><input type="checkbox" value="B8">B8</td>
+  <td><input type="checkbox" value="B9">B9</td>
+  <td><input type="checkbox" value="B10">B10</td>
 </tr>
-<tr>
-<td>C</td>
-  <td><input type="checkbox" value="C1"></td>
-  <td><input type="checkbox" value="C2"></td>
-  <td><input type="checkbox" value="C3"></td>
-  <td><input type="checkbox" value="C4"></td>
-  <td><input type="checkbox" value="C5"></td>
-  <td><input type="checkbox" value="C6"></td>
-  <td><input type="checkbox" value="C7"></td>
-  <td><input type="checkbox" value="C8"></td>
-  <td><input type="checkbox" value="C9"></td>
-  <td><input type="checkbox" value="C10"></td>
+<tr> -->
+<!-- <td>C</td> -->
+  <!-- <td><input type="checkbox" value="C1">C1</td>
+  <td><input type="checkbox" value="C2">C2</td>
+  <td><input type="checkbox" value="C3">C3</td>
+  <td><input type="checkbox" value="C4">C4</td>
+  <td><input type="checkbox" value="C5">C5</td>
+  <td><input type="checkbox" value="C6">C6</td>
+  <td><input type="checkbox" value="C7">C7</td>
+  <td><input type="checkbox" value="C8">C8</td>
+  <td><input type="checkbox" value="C9">C9</td>
+  <td><input type="checkbox" value="C10">C10</td>
 </tr>
 </table>
-<div><h>Gold</h></div>
+<div style="text-align: center;"><h4>Gold</h4></div>
   <table class="table">
 <tbody>
-<tr>
-  <td>D</td>
-  <td><input type="checkbox" value="D1"></td>
-  <td><input type="checkbox" value="D2"></td>
-  <td><input type="checkbox" value="D3"></td>
-  <td><input type="checkbox" value="D4"></td>
-  <td><input type="checkbox" value="D5"></td>
-  <td><input type="checkbox" value="D6"></td>
-  <td><input type="checkbox" value="D7"></td>
-  <td><input type="checkbox" value="D8"></td>
-  <td><input type="checkbox" value="D9"></td>
-  <td><input type="checkbox" value="D10"></td>
+<tr> -->
+  <!-- <td>D</td> -->
+  <!-- <td><input type="checkbox" value="D1">D1</td>
+  <td><input type="checkbox" value="D2">D2</td>
+  <td><input type="checkbox" value="D3">D3</td>
+  <td><input type="checkbox" value="D4">D4</td>
+  <td><input type="checkbox" value="D5">D5</td>
+  <td><input type="checkbox" value="D6">D6</td>
+  <td><input type="checkbox" value="D7">D7</td>
+  <td><input type="checkbox" value="D8">D8</td>
+  <td><input type="checkbox" value="D9">D9</td>
+  <td><input type="checkbox" value="D10">D10</td>
 </tr>
-<tr>
-  <td>E</td>
-  <td><input type="checkbox" value="E1"></td>
-  <td><input type="checkbox" value="E2"></td>
-  <td><input type="checkbox" value="E3"></td>
-  <td><input type="checkbox" value="E4"></td>
-  <td><input type="checkbox" value="E5"></td>
-  <td><input type="checkbox" value="E6"></td>
-  <td><input type="checkbox" value="E7"></td>
-  <td><input type="checkbox" value="E8"></td>
-  <td><input type="checkbox" value="E9"></td>
-  <td><input type="checkbox" value="E10"></td>
+<tr> -->
+  <!-- <td>E</td> -->
+  <!-- <td><input type="checkbox" value="E1">E1</td>
+  <td><input type="checkbox" value="E2">E2</td>
+  <td><input type="checkbox" value="E3">E3</td>
+  <td><input type="checkbox" value="E4">E4</td>
+  <td><input type="checkbox" value="E5">E5</td>
+  <td><input type="checkbox" value="E6">E6</td>
+  <td><input type="checkbox" value="E7">E7</td>
+  <td><input type="checkbox" value="E8">E8</td>
+  <td><input type="checkbox" value="E9">E9</td>
+  <td><input type="checkbox" value="E10">E10</td>
 </tr>
-<tr>
-  <td>F</td>
-  <td><input type="checkbox" value="F1"></td>
-  <td><input type="checkbox" value="F2"></td>
-  <td><input type="checkbox" value="F3"></td>
-  <td><input type="checkbox" value="F4"></td>
-  <td><input type="checkbox" value="F5"></td>
-  <td><input type="checkbox" value="F6"></td>
-  <td><input type="checkbox" value="F7"></td>
-  <td><input type="checkbox" value="F8"></td>
-  <td><input type="checkbox" value="F9"></td>
+<tr> -->
+  <!-- <td>F</td> -->
+  <!-- <td><input type="checkbox" value="F1">F1</td>
+  <td><input type="checkbox" value="F2">F2</td>
+  <td><input type="checkbox" value="F3">F3</td>
+  <td><input type="checkbox" value="F4">F4</td>
+  <td><input type="checkbox" value="F5">F5</td>
+  <td><input type="checkbox" value="F6">F6</td>
+  <td><input type="checkbox" value="F7">F7</td>
+  <td><input type="checkbox" value="F8">F8</td>
+  <td><input type="checkbox" value="F9">F9</td>
   <td><input type="checkbox" value="F10">F10</td>
 </tr>
 </table>
-<div><h>Silver</h></div>
+<div style="text-align: center;"><h4>Silver</h4></div>
   <table class="table">
 <tbody>
-<tr>
-  <td>G</td>
-  <td><input type="checkbox" value="G1"></td>
-  <td><input type="checkbox" value="G2"></td>
-  <td><input type="checkbox" value="G3"></td>
-  <td><input type="checkbox" value="G4"></td>
-  <td><input type="checkbox" value="G5"></td>
-  <td><input type="checkbox" value="G6"></td>
-  <td><input type="checkbox" value="G7"></td>
-  <td><input type="checkbox" value="G8"></td>
-  <td><input type="checkbox" value="G9"></td>
-  <td><input type="checkbox" value="G10"></td>
+<tr> -->
+  <!-- <td>G</td> -->
+  <!-- <td><input type="checkbox" value="G1">G1</td>
+  <td><input type="checkbox" value="G2">G2</td>
+  <td><input type="checkbox" value="G3">G3</td>
+  <td><input type="checkbox" value="G4">G4</td>
+  <td><input type="checkbox" value="G5">G5</td>
+  <td><input type="checkbox" value="G6">G6</td>
+  <td><input type="checkbox" value="G7">G7</td>
+  <td><input type="checkbox" value="G8">G8</td>
+  <td><input type="checkbox" value="G9">G9</td>
+  <td><input type="checkbox" value="G10">G10</td>
 </tr>
-<tr>
-  <td>H</td>
-  <td><input type="checkbox" value="H1"></td>
-  <td><input type="checkbox" value="H2"></td>
-  <td><input type="checkbox" value="H3"></td>
-  <td><input type="checkbox" value="H4"></td>
-  <td><input type="checkbox" value="H5"></td>
-  <td><input type="checkbox" value="H6"></td>
-  <td><input type="checkbox" value="H7"></td>
-  <td><input type="checkbox" value="H8"></td>
-  <td><input type="checkbox" value="H9"></td>
-  <td><input type="checkbox" value="H10"></td>
+<tr> -->
+  <!-- <td>H</td> -->
+  <!-- <td><input type="checkbox" value="H1">H1</td>
+  <td><input type="checkbox" value="H2">H2</td>
+  <td><input type="checkbox" value="H3">H3</td>
+  <td><input type="checkbox" value="H4">H4</td>
+  <td><input type="checkbox" value="H5">H5</td>
+  <td><input type="checkbox" value="H6">H6</td>
+  <td><input type="checkbox" value="H7">H7</td>
+  <td><input type="checkbox" value="H8">H8</td>
+  <td><input type="checkbox" value="H9">H9</td>
+  <td><input type="checkbox" value="H10">H10</td>
 </tr>
-<tr>
-  <td>I</td>
-  <td><input type="checkbox" value="I1"></td>
-  <td><input type="checkbox" value="I2"></td>
-  <td><input type="checkbox" value="I3"></td>
-  <td><input type="checkbox" value="I4"></td>
-  <td><input type="checkbox" value="I5"></td>
-  <td><input type="checkbox" value="I6"></td>
-  <td><input type="checkbox" value="I7"></td>
-  <td><input type="checkbox" value="I8"></td>
-  <td><input type="checkbox" value="I9"></td>
+<tr> -->
+  <!-- <td>I</td> -->
+  <!-- <td><input type="checkbox" value="I1">I1</td>
+  <td><input type="checkbox" value="I2">I2</td>
+  <td><input type="checkbox" value="I3">I3</td>
+  <td><input type="checkbox" value="I4">I4</td>
+  <td><input type="checkbox" value="I5">I5</td>
+  <td><input type="checkbox" value="I6">I6</td>
+  <td><input type="checkbox" value="I7">I7</td>
+  <td><input type="checkbox" value="I8">I8</td>
+  <td><input type="checkbox" value="I9">I9</td>
   <td><input type="checkbox" value="I10">I10</td>
 
 </tr>
-<tr>
-  <td>J</td>
-  <td><input type="checkbox" id="rrr" value="J1">J1</td>
-  <td><input type="checkbox" value="J2"></td>
-  <td><input type="checkbox" value="J3"></td>
-  <td><input type="checkbox" value="J4"></td>
-  <td><input type="checkbox" value="J5"></td>
-  <td><input type="checkbox" value="J6"></td>
-  <td><input type="checkbox" value="J7"></td>
-  <td><input type="checkbox" value="JA8"></td>
-  <td><input type="checkbox" value="J9"></td>
-  <td><input type="checkbox" value="J10"></td>
+<tr> -->
+  <!-- <td>J</td> -->
+  <!-- <td><input type="checkbox" id="rrr" value="J1">J1</td>
+  <td><input type="checkbox" value="J2">J2</td>
+  <td><input type="checkbox" value="J3">J3</td>
+  <td><input type="checkbox" value="J4">J4</td>
+  <td><input type="checkbox" value="J5">J5</td>
+  <td><input type="checkbox" value="J6">J6</td>
+  <td><input type="checkbox" value="J7">J7</td>
+  <td><input type="checkbox" value="J8">J8</td>
+  <td><input type="checkbox" value="J9">J9</td>
+  <td><input type="checkbox" value="J10">J10</td>
 
 </tr>
 
 
 </tbody>
 
-</table>
- -->
-<div>
+</table> -->
+
+<!-- <div style="text-align: center;">
+  <td><input type="checkbox" value="Booked" class="disabled"><b>Booked</b></td>
+  <td><input type="checkbox" value="Available"><b>Available</b></td>
+  <div style="text-align: center;">
+    <br>
+  <button ng-click = "" style="background-color: black;" class="button"><a href=""><span style="color: white;">Book</span></button> -->
+  <div class="table-responsive" style="margin-top: 3%;">
+    <div style="text-align: center;"><h2>SEAT ARRANGEMENT</h2></div>
+</div >
+    <table class="seatLayout" >
+        <div class="legend" style="padding: 0px 5px 5px 0px; margin-left: 165px;">
+           <div> <img src="../resrc/images/seat1.jpg">Available</div>
+          <div style="margin-left: 10%;margin-top: -30px;">  <img src="../resrc/images/seat.jpg"> Booked</div>
+          <div style="margin-left: 196px;margin-top: -31px;"> <img src="../resrc/images/seat2.jpg">Selected</div>
+      </div>
+      <div style="margin-left: 23%;"><h4>Platinum</h4></div>
+        <tbody>
+          <tr class="tablestyle">
+                <td class="padding-bottom"></td>
+                <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
+            </tr>
+            <tr class="tablestyle" ng-repeat="row in rows">
+                <td class="padding-right" ng-bind="row"></td>
+                <td class="seat" ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                    <img ng-switch-when="selected" src="../resrc/images/seat2.jpg">
+                    <img ng-switch-when="reserved" src="../resrc/images/seat1.jpg">
+                    <img ng-switch-default src="../resrc/images/seat1.jpg">
+                </td>
+            </tr>
+        </tbody>
+      </table>
+        <div style="margin-left: 24%;"><h4>Gold</h4></div>
+        <table class="seatLayout" >
+        <tbody>
+          <tr class="tablestyle">
+                <td class="padding-bottom"></td>
+                <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
+            </tr>
+            <tr class="tablestyle" ng-repeat="row in rows1">
+                <td class="padding-right" ng-bind="row"></td>
+                <td class="seat" ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                    <img ng-switch-when="selected" src="../resrc/images/seat2.jpg">
+                    <img ng-switch-when="reserved" src="../resrc/images/seat1.jpg">
+                    <img ng-switch-default src="../resrc/images/seat1.jpg">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="margin-left: 24%;"><h4>Silver</h4></div>
+    <table class="seatLayout" >
+    <tbody>
+      <tr class="tablestyle">
+            <td class="padding-bottom"></td>
+            <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
+        </tr>
+        <tr class="tablestyle" ng-repeat="row in rows2">
+            <td class="padding-right" ng-bind="row"></td>
+            <td class="seat" ng-repeat="col in cols2" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                <img ng-switch-when="selected" src="../resrc/images/seat2.jpg">
+                <img ng-switch-when="reserved" src="../resrc/images/seat1.jpg">
+                <img ng-switch-default src="../resrc/images/seat1.jpg">
+            </td>
+        </tr>
+    </tbody>
+    </table>
+<div style="background-color: black;width: 644px;">
+  <h4 style="color: aliceblue;margin-left: 238px;">All Eyes Faced Here</h4>
+</div>
+
+
+
+<!-- <br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+    <table class="seatLayout"style="margin-top: 2%;
+        margin-left: 10%;">
+
+          <div style="margin-left: 20%;margin-top: 10%;">
+            <img src="img/seatnorml.jpg" style="width:30px;height:30px;">Available
+            <img src="img/seatbook.jpg" style="width:30px;height:30px;">Reserved
+          </div>
+        <tbody>
+          <tr>
+                <td></td>
+                <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
+            </tr>
+            <tr class="tablestyle" ng-repeat="row in rows">
+                <td ng-bind="row"></td>
+                <td ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                    <img ng-switch-when="selected" src="img/seatbook.jpg" style="width:30px;height:30px;">
+                    <img ng-switch-when="reserved" src="img/seatnorml.png" style="width:30px;height:30px;">
+                    <img ng-switch-default src="img/seatnorml.jpg" style="width:30px;height:30px;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div style="background-color:black;width: 36%;margin-left: 10%;">
+    <h4 style="color:white;text-align:center">SCREEN</h4>
+    </div>
+    </div> -->
+
+<!-- <div>
   <h3>Platinum</h3>
   <button type="button" class="btn btn-primary" id="rrr" value="A1">A1</button>
   <button type="button" class="btn btn-primary" id="" value="A2">A2</button>
@@ -282,4 +401,4 @@
   <button type="button" class="btn btn-primary" value="B20">B20</button>
   <button type="button" class="btn btn-primary" value="B21">B21</button>
   <button type="button" class="btn btn-primary" value="B22">B22</button>
-</div>
+</div> -->
