@@ -1,6 +1,5 @@
 'use strict';
 
-
 var angular = require('angular');
 require('angular-route');
 
@@ -23,7 +22,15 @@ app.config(function($routeProvider) {
     templateUrl: 'views/cancellation.html',
     controller: 'CancellationController',
   })
+  .when('/admin', {
+    templateUrl: 'views/admin.html',
+    // controller: 'CancellationController',
+  })
+  .when('/moviebooking', {
+    templateUrl: 'views/moviebooking.html',
+    controller: 'MovieBookingController',
+  })
   .otherwise({
-    redirectTo: '/',
+    redirectTo: 'views/home.html',
   });
 });
