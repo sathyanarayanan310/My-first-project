@@ -254,7 +254,12 @@ var refreshSho = function () {
   };
 
   refreshSho();
-
+// $scope.
+//   function myFunction() {
+//       var str = "";
+//       var res = str.split(" ");
+//       document.getElementById("demo").innerHTML = res;
+//     }
   $scope.addShow = function () {
 //     var app = angular.module('movieApp', []);
 // app.controller('myCtrl', function($scope) {

@@ -11,26 +11,66 @@ module.exports = function($scope, $http, $log, $rootScope) {
             $scope.map = "";
         });
     };
+      refreshMape();
 
-    refreshMape();
+    var refreshLocat = function () {
+          $http.get('/cty/cty').success(function (response) {
+              console.log('READ IS SUCCESSFUL');
+              $scope.loclist = response;
+              $scope.loc = "";
+          });
+      };
+        refreshLocat();
+
+        var refreshSho = function () {
+              $http.get('/showt/showt').success(function (response) {
+                  console.log('READ IS SUCCESSFUL');
+                  $scope.timlist = response;
+                  $scope.tim = "";
+              });
+          };
+
+          refreshSho();
+
+          var refreshTheat = function () {
+                $http.get('/theater/theater').success(function (response) {
+                    console.log('theater READ IS SUCCESSFUL');
+                    $scope.thtrelist = response;
+                    $scope.thtre = "";
+                });
+            };
+
+            refreshTheat();
+
+            var refresh = function() {
+                $http.get('/movie/movie').success(function(response) {
+                    console.log('READ IS SUCCESSFUL');
+                    $scope.moviList = response;
+                    $scope.movi = "";
+                });
+            };
+
+            refresh();
+
+
 
     var selected=[];
     var reserved=[];
     $scope.rows = ['A', 'B', 'C', 'D',];
-       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16 ];
+       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
 
        $scope.rows1 = ['E', 'F', 'G', 'H',];
-          $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16 ];
+          $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
 
           $scope.rows2 = ['I', 'J', 'K', 'L',];
-             $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16 ];
+             $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
 
 
 $scope.getStatus = function(seatPos) {
   if(reserved.indexOf(seatPos) > -1) {
                 return 'reserved';
             } else if(selected.indexOf(seatPos) > -1) {
-                return selected;
+                return 'selected';
             }
 
         }
