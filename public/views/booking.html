@@ -372,7 +372,7 @@ visibility:hidden;
 <div class="col-sm-12 col-md-12">
 
 <div class="nav-side-menu" style="margin-top: 70px;">
-<div class="brand">Filter</div>
+<!-- <div class="brand">Filter</div> -->
 <button aria-expanded="true" data-target="#menu-content" data-toggle="collapse" class="fa fa-bars fa-2x toggle-btn"></button>
 
 <div class="menu-list">
@@ -400,7 +400,7 @@ visibility:hidden;
 <tr>
 
 
-<td><input ng-model="tim.showTime"/></td>
+<td><input ng-model="tim.showTime" class="form-control"/></td>
 
 <td><button ng-click="addShow()" class="btn btn-primary">Add Time</button></td>
 <td><button ng-click="updateShow()" class="btn btn-primary">Update</button></td>
@@ -458,7 +458,7 @@ $Container.show();
 <tr>
 
 
-<td><input ng-model="loc.cityName"/></td>
+<td><input ng-model="loc.cityName" class="form-control"/></td>
 
 <td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
 <td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
@@ -502,7 +502,7 @@ $Container.show();
 <tr>
 
 
-<td><input ng-model="thtre.TheaterName"/></td>
+<td><input ng-model="thtre.TheaterName" class="form-control"/></td>
 <td>
 <div class="form-group">
 
@@ -511,12 +511,12 @@ $Container.show();
 
 </select></div></td>
 <!-- <td><input /> -->
-<td><input ng-model="thtre.seatingcapacity"/></td>
+<td><input ng-model="thtre.seatingcapacity" class="form-control"/></td>
 
-<td>  <div class="form-group">
+<td>  <div>
 
 <!-- <select class="form-control" ng-model="thtre.showTime"> -->
-<select class="selectpicker" ng-model="thtre.showtime" multiple="multiple">
+<select class="form-control" ng-model="thtre.showtime" multiple="multiple">
 <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
 </select></div></td>
 <!-- <td><button onclick="click()">addtime</button></td>
@@ -596,10 +596,13 @@ document.getElementById("demo").innerHTML = {{timing}};
 </tbody>
 </table></li></ul> -->
 
-<td><input ng-model="movi.moviTitle"/></td>
+<td>
+  <input ng-model="movi.moviTitle" class="form-control"/>
+</td>
 <td>
   <div>
-    <input ng-model="movi.moviYear"/></td>
+    <input ng-model="movi.moviYear" class="form-control"/>
+  </td>
 
   <!-- <select id="yr" ng-model="movi.moviYear">
     <option></option>
@@ -696,14 +699,16 @@ document.getElementById("demo").innerHTML = {{timing}};
 <option ng-repeat="t in timlist | filter:map.Hall" value="{{t.showTime}}">{{t.showTime}}</option>
 </select></div></td> -->
 <td>
-<select id="st" ng-model="map.showtime"><option ng-repeat="th in thtrelist | filter:map.Hall" value="{{th.showtime}}">{{th.showtime}}</option>
+  <div class="form-group">
+<select id="st" ng-model="map.showtime" class="form-control"><option ng-repeat="th in thtrelist | filter:map.Hall" value="{{th.showtime}}">{{th.showtime}}</option>
+</div>
 </td>
 <!-- <td>
 <select ng-model="map.ShowTime" ng-options="t.showTime for t in timlist | filter:{showTime:map.Hall}"><option value="{{t.showTime}}">{{t.showTime}}</option>
 </td> -->
 
-<td><input type="date" ng-model="map.From"></td>
-<td><input type="date" ng-model="map.To"></td>
+<td><div><input type="date" class="form-control" ng-model="map.From"></div></td>
+<td><div><input type="date" class="form-control" ng-model="map.To"></div></td>
 
 
 

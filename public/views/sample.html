@@ -1,0 +1,29 @@
+<!-- <script>
+
+
+</script>
+<body>
+  <div>
+<table class="seatLayout" >
+    <div class="legend">
+       <div style="
+    margin-left: 20%;
+"> <img src="../resrc/images/W_chair.gif">  Available</div>
+      <div >  <img src="../resrc/images/R_chair.gif" class="padding-left">  Booked</div>
+  </div>
+    <tbody>
+      <tr class="tablestyle">
+            <td class="padding-bottom"></td>
+            <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
+        </tr>
+        <tr class="tablestyle" ng-repeat="row in rows">
+            <td class="padding-right" ng-bind="row"></td>
+            <td class="seat" ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                <img ng-switch-when="selected" src="../resrc/images/G_chair.gif">
+                <img ng-switch-when="reserved" src="../resrc/images/R_chair.gif">
+                <img ng-switch-default src="../resrc/images/W_chair.gif">
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+</body> -->
