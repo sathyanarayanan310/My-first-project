@@ -387,7 +387,8 @@ visibility:hidden;
 
 
 <ul id="showdetail" class="sub-menu collapse">
-<li class="active">	<table class="table">
+<li class="active">
+<table class="table">
 <thead>
 <tr>
 
@@ -441,7 +442,7 @@ $Container.show();
 
 <li class="collapsed" data-target="#citydetail" data-toggle="collapse">
 <!-- <a href="#"> -->
-<span class="glyphicon glyphicon-map-marker" style="color:black"></span> <strong style="color:black">Add City</strong> <span class="arrow"></span></a>
+<span class="glyphicon glyphicon-map-marker" style="color:black"></span><strong style="color:black">Add City</strong> <span class="arrow"></span></a>
 </li>
 
 <ul id="citydetail" class="sub-menu collapse">
@@ -513,12 +514,64 @@ $Container.show();
 <!-- <td><input /> -->
 <td><input ng-model="thtre.seatingcapacity" class="form-control"/></td>
 
-<td>  <div>
+<!-- <td>  <div>
 
-<!-- <select class="form-control" ng-model="thtre.showTime"> -->
+<select class="form-control" ng-model="thtre.showTime">
+<button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button"><span class="bs-caret"><span class="caret"></span></span></button>
+<select class="selectpicker" multiple>
+  <option>{{tim.showTime}}</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
 <select class="form-control" ng-model="thtre.showtime" multiple="multiple">
 <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
-</select></div></td>
+</select></div></td> -->
+<td>
+  <div>
+    <select id="selecttime" class="form-control" ng-model="thtre.showtime">
+  <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
+
+</select>
+</div>
+</td>
+<td>
+  <div>
+    <!-- <select class="form-control" class="selectpicker">
+      <option>{{tim.showtime}}</option>
+    </select> -->
+    <!-- <select id="selecttime"><optgroup label="Select" ng-repeat="tobj in Threaterlist | filter:now.TName"><option ng-repeat="tm in tobj.ShowTime">{{tm}}</option></optgroup></select> -->
+    <!-- <select ><option ng-repeat="tim in timlist">{{tim.showTime}}</option></select> -->
+<!-- <button ng-click="addShow()" class="btn btn-primary">Add Show</button> -->
+<td><button id="add" class="btn btn-primary">Add Time</button></td>
+</div>
+         <!-- <button id="add" ng-click="addsh()">Add ShowTime</button> -->
+         <div>
+              <td><select ng-model="thtre.showTime" id="time" multiple></select></td>
+
+  </div></td>
+<!-- <script>
+$(function() {
+        $('#colorselector').change(function(){
+            $('.color').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+    </script> -->
+
+<!-- <Select id="colorselector" multiple="multiple" size="4">
+     <option ng-repeat="tim in timlist" ng-click="addTheater()">{{tim.showTime}}</option> -->
+     <!-- <option value="red">Red</option>
+  <option value="yellow">Yellow</option>
+  <option value="blue">Blue</option> -->
+  <!-- <div>
+    <td><p>{{tim.showTime}}</p></td>
+  </div>
+</Select> -->
+<!-- <div><button id="red" class="colors" style="display:none"> red.. </botton></div>
+<div id="yellow" class="colors" style="display:none"> yellow.. </div>
+<div id="blue" class="colors" style="display:none"> blue.. </div> -->
+  <!-- <td><button ng-click="addTheater()" class="btn btn-primary" id="red">Add Time</button></td> -->
+<!-- <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" aria-expanded="false"><span class="filter-option pull-left"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button> -->
 <!-- <td><button onclick="click()">addtime</button></td>
 <td><div id="demo"> <select class="selectpicker" multiple="multiple" ng-model="thtre.showTime">
 <option>{{timing}}</option>
@@ -542,8 +595,10 @@ document.getElementById("demo").innerHTML = {{timing}};
 
 <td>{{thtre.TheaterName}}</td>
 <td>{{thtre.location}}</td>
-<td>{{thtre.seatingcapacity}}
-<td>{{thtre.showtime}}</td>
+<td>{{thtre.seatingcapacity}}</td>
+<td id="time" ng-model="thtre.showTime"></td>
+<!-- <td>{{tim.showtime}}</td> -->
+
 
 <td><button ng-click="removeTheater(thtre)" class="btn btn-danger">Remove</button></td>
 <td><button ng-click="editTheater(thtre)" class="btn btn-primary">Edit</button></td>
