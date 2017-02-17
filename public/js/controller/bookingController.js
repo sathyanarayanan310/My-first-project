@@ -246,26 +246,41 @@ var refreshLocat = function () {
 //showtime controllerr..............................
 
 var refreshSho = function () {
+  // document.getElementById("selecttime").value;
       $http.get('/showt/showt').success(function (response) {
           console.log('READ IS SUCCESSFUL');
           $scope.timlist = response;
           $scope.tim = "";
       });
   };
+refreshSho();
 
-  refreshSho();
+  // $scope.addsh = function () {
+
+// $scope.addSh = function () {
+    $('#add').click(function(){
+            var data = ($('#selecttime').val());
+            $('#time').append("<option value='"+data+"'>"+data+"</option>");
+
+        });
+// };
+
+// };
+
+  // $('#addtime').click(function(){
+  //         var data = ($('#UserSelector1').val());
+  //         $('#restime').append("<option value='"+data+"'>"+data+"</option>");
+
+  //     });
+
 // $scope.
 //   function myFunction() {
 //       var str = "";
 //       var res = str.split(" ");
-//       document.getElementById("demo").innerHTML = res;
+//       document.getElementById("demo").value;
 //     }
   $scope.addShow = function () {
-//     var app = angular.module('movieApp', []);
-// app.controller('myCtrl', function($scope) {
-//     $scope.count = 0;
-// });
-      console.log($scope.tim);
+          console.log($scope.tim);
       $http.post('/showt/showt', $scope.tim).success(function (response) {
           console.log(response);
           console.log("CREATE IS SUCCESSFUL");
