@@ -13,6 +13,7 @@ var bookSchema = mongoose.Schema({
     Day:String,
   ShowTime:String,
     Amount:String,
+    nofseats:String,
    seatNo:String
  });
 var Book = mongoose.model('Book',bookSchema, 'bookTable');
@@ -42,6 +43,7 @@ router.post('/book', function(req, res){
   var day= req.body.Day;
   var show = req.body.ShowTime;
   var money = req.body.Amount;
+  var nseats = req.body.Nofseat;
   var seat = req.body.SeatNo;
 
 var book1 = new Book({
@@ -51,6 +53,7 @@ var book1 = new Book({
     Day:day,
     ShowTime:show,
     Amount:money,
+    Nofseat:nseats,
     SeatNo:seat,
 });
 

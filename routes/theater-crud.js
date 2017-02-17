@@ -61,6 +61,7 @@ router.delete('/theater/:id', function(req, res){
    console.log("REACHED Delete FUNCTION ON SERVER");
       Theater.remove({_id:req.params.id}, function(err, docs){
         res.json(docs);
+
     });
 })
 
