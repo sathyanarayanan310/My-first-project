@@ -14,7 +14,8 @@ var bookSchema = mongoose.Schema({
   ShowTime:String,
     Amount:String,
     nofseats:String,
-   seatNo:String
+   seatNo:String,
+   
  });
 var Book = mongoose.model('Book',bookSchema, 'bookTable');
 
