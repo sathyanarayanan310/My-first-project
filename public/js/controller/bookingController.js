@@ -328,8 +328,8 @@ refreshSho();
   // app.controller('myCtrl', function($scope) {
   //     $scope.count = 0;
   // });
-  var time = document.getElementById("st").value;
-  console.log(time);
+  // var time = document.getElementById("st").value;
+  // console.log(time);
         console.log($scope.map);
         $http.post('/map/map',$scope.map).success(function (response) {
             console.log(response);
