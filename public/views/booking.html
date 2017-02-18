@@ -528,7 +528,7 @@ $Container.show();
 </select></div></td> -->
 <td>
   <div>
-    <select id="selecttime" class="form-control" ng-model="thtre.showtime">
+    <select id="selecttime" class="form-control" >
   <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
 
 </select>
@@ -536,17 +536,11 @@ $Container.show();
 </td>
 <td>
   <div>
-    <!-- <select class="form-control" class="selectpicker">
-      <option>{{tim.showtime}}</option>
-    </select> -->
-    <!-- <select id="selecttime"><optgroup label="Select" ng-repeat="tobj in Threaterlist | filter:now.TName"><option ng-repeat="tm in tobj.ShowTime">{{tm}}</option></optgroup></select> -->
-    <!-- <select ><option ng-repeat="tim in timlist">{{tim.showTime}}</option></select> -->
-<!-- <button ng-click="addShow()" class="btn btn-primary">Add Show</button> -->
+
 <td><button id="add" class="btn btn-primary">Add Time</button></td>
 </div>
-         <!-- <button id="add" ng-click="addsh()">Add ShowTime</button> -->
-         <div>
-              <td><select ng-model="thtre.showTime" id="time" multiple></select></td>
+       <div>
+               <td><select id="time" ng-model="thtre.showtime" multiple ></select></td>
 
   </div></td>
 <!-- <script>
@@ -596,8 +590,8 @@ document.getElementById("demo").innerHTML = {{timing}};
 <td>{{thtre.TheaterName}}</td>
 <td>{{thtre.location}}</td>
 <td>{{thtre.seatingcapacity}}</td>
-<td id="time" ng-model="thtre.showTime"></td>
-<!-- <td>{{tim.showtime}}</td> -->
+<td>{{thtre.showtime}}</td>
+
 
 
 <td><button ng-click="removeTheater(thtre)" class="btn btn-danger">Remove</button></td>
@@ -720,6 +714,7 @@ document.getElementById("demo").innerHTML = {{timing}};
 <th>City</th>
 <th>Theater</th>
 <th>Show time</th>
+
 <th>From</th>
 <th>To</th>
 
@@ -753,11 +748,29 @@ document.getElementById("demo").innerHTML = {{timing}};
 <select class="form-control" ng-model="map.ShowTime">
 <option ng-repeat="t in timlist | filter:map.Hall" value="{{t.showTime}}">{{t.showTime}}</option>
 </select></div></td> -->
-<td>
+<!-- <td>
   <div class="form-group">
 <select id="st" ng-model="map.showtime" class="form-control"><option ng-repeat="th in thtrelist | filter:map.Hall" value="{{th.showtime}}">{{th.showtime}}</option>
 </div>
-</td>
+</td> -->
+<td><div>
+  <select class="form-control" id="selecttime" ng-model="map.showtime">
+    <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall">
+      <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
+    </optgroup>
+  </select>
+    <!-- <select id="selecttime" class="form-control" >
+  <option ng-repeat="t in thtrelist| filter:map.Hall">{{t.showtim}}</option>
+</select> -->
+</div></td>
+<!-- <td>
+  <div>
+<td><button id="add" class="btn btn-primary">Add Time</button></td>
+</div>
+<div>
+<td><select id="time" ng-model="thtre.showtime"></select></td>
+</div></td> -->
+
 <!-- <td>
 <select ng-model="map.ShowTime" ng-options="t.showTime for t in timlist | filter:{showTime:map.Hall}"><option value="{{t.showTime}}">{{t.showTime}}</option>
 </td> -->
