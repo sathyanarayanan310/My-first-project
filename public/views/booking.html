@@ -753,16 +753,33 @@ document.getElementById("demo").innerHTML = {{timing}};
 <select id="st" ng-model="map.showtime" class="form-control"><option ng-repeat="th in thtrelist | filter:map.Hall" value="{{th.showtime}}">{{th.showtime}}</option>
 </div>
 </td> -->
+
 <td><div>
   <select class="form-control" id="selecttime" ng-model="map.showtime">
     <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall">
       <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
     </optgroup>
   </select>
-    <!-- <select id="selecttime" class="form-control" >
-  <option ng-repeat="t in thtrelist| filter:map.Hall">{{t.showtim}}</option>
-</select> -->
-</div></td>
+
+
+  <!-- <td>
+    <div>
+      <select id="selecttimes" class="form-control">
+        <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall">
+          <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
+        </optgroup>
+  </select>
+  </div>
+  </td>
+  <td>
+    <div>
+  <td><button id="adds" class="btn btn-primary">Add Time</button></td>
+  </div>
+         <div>
+                 <td><select id="times"  ng-model="map.showtime" multiple ></select></td>
+    </div></td> -->
+
+
 <!-- <td>
   <div>
 <td><button id="add" class="btn btn-primary">Add Time</button></td>
