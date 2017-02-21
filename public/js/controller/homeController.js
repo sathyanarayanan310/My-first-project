@@ -12,9 +12,9 @@ var r = function() {
   };
 
     r();
-    $scope.bookingmovi = function(m){
-      console.log(m+ "booking is successfull");
-    };
+    // $scope.bookingmovi = function(m){
+    //   console.log(m+ "booking is successfull");
+    // };
 
 
 
@@ -23,6 +23,13 @@ $scope.bookingmovi= function (m) {
 // alert($rootScope.moviebooking);
 $location.path('/moviebooking');
       };
+
+      $scope.ratingreview= function (m) {
+                       $rootScope.moviebooking=m;
+      // alert($rootScope.moviebooking);
+      $location.path('/rating');
+            };
+
 
 };
 // 'use strict';

@@ -323,6 +323,12 @@ refreshSho();
 
     refreshMape();
 
+    $('#adds').click(function(){
+            var data = ($('#selecttimes').val());
+            $('#times').append("<option value='"+data+"'>"+data+"</option>");
+
+        });
+
     $scope.addMap = function () {
   //     var app = angular.module('movieApp', []);
   // app.controller('myCtrl', function($scope) {
