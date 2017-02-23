@@ -2,11 +2,13 @@
 
 module.exports = function($scope, $http, $log, $rootScope, $location) {
   $scope.movieinfo = $rootScope.moviebooking;
+  console.log($scope.movieinfo);
   var date;
  var details=[];
-$scope.seat=false;  var i;
+$scope.seat=false;
+var i;
 $rootScope.seatArrange=[];
-  console.log($scope.movieinfo);
+  // console.log($scope.movieinfo);
 
   var refreshBookin = function () {
         $http.get('/book/book').success(function (response) {
@@ -18,83 +20,19 @@ $rootScope.seatArrange=[];
 
     refreshBookin();
 
-  var refreshMape = function () {
-        $http.get('/map/map').success(function (response) {
-            console.log('READ IS SUCCESSFUL');
-            $scope.maplist = response;
-            $scope.map = "";
-        });
+    var refreshConfirm = function () {
+
+        $http.get('/con/con').success(function (response) {
+
+            console.log('Confirm READ IS SUCCESSFUL');
+            $scope.confirmlist = response;
+            $scope.confirm = "";
+            console.log($scope.confirmlist);
+
+
+    });
     };
-      refreshMape();
-
-
-    var refreshLocat = function () {
-          $http.get('/cty/cty').success(function (response) {
-              console.log('READ IS SUCCESSFUL');
-              $scope.loclist = response;
-              $scope.loc = "";
-          });
-      };
-        refreshLocat();
-
-        var refreshSho = function () {
-              $http.get('/showt/showt').success(function (response) {
-                  console.log('READ IS SUCCESSFUL');
-                  $scope.timlist = response;
-                  $scope.tim = "";
-              });
-          };
-
-          refreshSho();
-
-          var refreshTheat = function () {
-                $http.get('/theater/theater').success(function (response) {
-                    console.log('theater READ IS SUCCESSFUL');
-                    $scope.thtrelist = response;
-                    $scope.thtre = "";
-                });
-            };
-
-            refreshTheat();
-
-            var refresh = function() {
-                $http.get('/movie/movie').success(function(response) {
-                    console.log('READ IS SUCCESSFUL');
-                    $scope.moviList = response;
-                    $scope.movi = "";
-                });
-            };
-
-            refresh();
-
-            // var refreshConfirm = function () {
-            //
-            //     $http.get('/con/con').success(function (response) {
-            //         console.log('Confirm READ IS SUCCESSFUL');
-            //         $scope.confirmlist = response;
-            //         $scope.confirm = "";
-            // });
-            // };
-            //
-            // refreshConfirm();
-
-            $scope.confirm = function() {
-              $scope.book.FilmName=$scope.movieinfo.moviTitle;
-            $scope.book.seatNo=selected;
-                console.log($scope.book);
-                $http.post('/book/book', $scope.book).success(function (response) {
-                        console.log(response);
-
-                    });
-                             $rootScope.confirmPage=$scope.book;
-            // alert($rootScope.moviebooking);
-            $location.path('/confirm');
-            refreshBookin();
-          };
-
-          $scope.submitForm=function(){
-
-          }
+    refreshConfirm();
 
     var selected=[];
     var reserved=[];
@@ -108,88 +46,211 @@ $rootScope.seatArrange=[];
              $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
 
 
-$scope.getStatus = function(seatPos) {
+  $scope.getStatus = function(seatPos) {
   if(reserved.indexOf(seatPos) > -1) {
                 return 'reserved';
             } else if(selected.indexOf(seatPos) > -1) {
                 return 'selected';
             }
-
-        }
-$scope.seatClicked=function(seatPos){
-  var index = selected.indexOf(seatPos);
-   if(index != -1) {
-       // seat already selected, remove
-       selected.splice(index, 1)
-   } else {
-       // new seat, push
-       selected.push(seatPos);
-       console.log(selected);
-
-      document.getElementById("seating").innerHTML=selected;
-      $scope.NumberOfSeats=selected.length;
-// seatClick();
- }
-};
-// var date=[];
-$scope.d=function(){
- date=document.getElementById("datebook").value;
-// alert(date);
-console.log(date);
 }
+            $scope.seatClicked=function(seatPos){
+              var index = selected.indexOf(seatPos);
+               if(index != -1) {
+                   // seat already selected, remove
+                   selected.splice(index, 1)
+               } else {
+                   // new seat, push
+                   selected.push(seatPos);
+                   console.log(selected);
 
-$scope.add =function(){
+                  document.getElementById("seating").innerHTML=selected;
+                  // $scope.nofseats=selected.length;
+                  // $scope.seatNo=selected;
+            // seatClick();
+             }
+            };
 
-  $scope.book.Day=date;
-  $scope.book.Title=$scope.movieinfo.moviTitle;
+            // $scope.d=function(){
+            //
+            // // alert(date);
+            // console.log(date);
+            // }
+            $scope.add =function(){
+              console.log($scope.confirmlist);
+ date=document.getElementById("datebook").value;
+              $scope.book.Day=date;
+              $scope.book.FilmName=$scope.movieinfo.moviTitle;
  console.log($scope.book.FilmName);
- console.log($scope.book.CityName);
- console.log($scope.book.HallName);
- console.log($scope.book.Day);
+             console.log($scope.book.CityName);
+             console.log($scope.book.HallName);
+             console.log($scope.book.Day);
+             console.log($scope.book.ShowTime);
+  try
+              {
+              for(i=0;i<=$scope.confirmlist.length;i++)
+                    {
+                      if($scope.confirmlist.length>=0)
+                      {
+                        console.log($scope.confirmlist[i].conFilmName);
+                        console.log($scope.confirmlist[i].conCityName);
+                        console.log($scope.confirmlist[i].conHallName);
+                        console.log($scope.confirmlist[i].conDay);
+                        console.log($scope.confirmlist[i].conShowTime);
 
- console.log($scope.book.ShowTime);
+                    if ($scope.confirmlist[i].conFilmName==$scope.book.FilmName && $scope.confirmlist[i].conCityName==$scope.book.CityName  && $scope.confirmlist[i].conHallName==$scope.book.HallName  && $scope.confirmlist[i].conDay==$scope.book.Day && $scope.confirmlist[i].conShowTime==$scope.book.ShowTime){
+                     reserved=$scope.confirmlist[i].conseatNo;
+                         console.log(reserved);
 
- try
- {
- for(i=0;i<=$scope.confirmlist.length;i++)
-       {
-         if($scope.confirmlist.length==0)
-         {
-           $scope.seat = true;
-         }
-         else{
-           console.log($scope.confirmlist[i].conTitle);
-           console.log($scope.confirmlist[i].conCityName);
-           console.log($scope.confirmlist[i].conHallName);
-           console.log($scope.confirmlist[i].conDay);
-           console.log($scope.confirmlist[i].conShowTime);
-
-
+                   }
+                    else
+                    {
+                       alert("there is no blked seats");
+                    }
+                  }
+                  else
+                    {
+                      alert("there is no booked data");
+                    }
+                  }
+                    }
 
 
-       if ($scope.confirmlist[i].conTitle==$scope.book.FilmName && $scope.confirmlist[i].conCityName==$scope.book.CityName  && $scope.confirmlist[i].conHallName==$scope.book.HallName  && $scope.confirmlist[i].conDay==$scope.book.Day && $scope.confirmlist[i].conShowTime==$scope.book.ShowTime){
-       $scope.seat = true;
-            console.log($scope.confirmlist[i].conTitle);
-            console.log($scope.confirmlist[i].conCityName);
-            console.log($scope.confirmlist[i].conHallName);
-            console.log($scope.confirmlist[i].conDay);
-            console.log($scope.confirmlist[i].conShowTime);
+                  catch(e){}
+
+              };
+
+              $scope.bk = function() {
+                date=document.getElementById("datebook").value;
+                $scope.book.FilmName=$scope.movieinfo.moviTitle;
+              $scope.book.seatNo=selected;
+              $scope.book.Day=date;
+              // console.log($scope.book.seatNo);
+                  console.log($scope.book);
+                  $http.post('/book/book', $scope.book).success(function (response) {
+                          console.log(response);
+$rootScope.confirmPage=$scope.book;
+                      });
+
+              // alert($rootScope.moviebooking);
+              $location.path('/confirm');
+              refreshBookin();
+            };
 
 
+                var refreshLocat = function () {
+                      $http.get('/cty/cty').success(function (response) {
+                          console.log('READ IS SUCCESSFUL');
+                          $scope.loclist = response;
+                          $scope.loc = "";
+                      });
+                  };
+                    refreshLocat();
 
-            reserved=$scope.confirmlist[i].conseatnumbers;
-            console.log(reserved);
+var uniqueNames = [];
+var uniqueObj = [];
+var uniqueHall=[];
+var uniqueTheat=[];
 
-      }
-       else
-       {
-          $scope.seatNo = true;
+
+  var refreshMape = function () {
+        $http.get('/map/map').success(function (response) {
+            console.log('READ IS SUCCESSFUL');
+            $scope.maplist = response;
+            $scope.map = "";
+            for(i = 0; i< $scope.maplist.length; i++){
+                if($scope.maplist[i].Film==$scope.movieinfo.moviTitle){
+              if(uniqueNames.indexOf($scope.maplist[i].City) === -1){
+                  uniqueObj.push($scope.maplist[i]);
+              uniqueNames.push($scope.maplist[i].City);
+            }
        }
      }
+       console.log(uniqueNames);
+       $scope.sel=function(){
+         var j;
+         for( j= 0; j< $scope.maplist.length; j++){
+
+       if($scope.maplist[j].Film==$scope.movieinfo.moviTitle&&$scope.maplist[j].City==$scope.book.CityName){
+         if(uniqueHall.indexOf($scope.maplist[j].Hall) === -1){
+             uniqueTheat.push($scope.maplist[j]);
+         uniqueHall.push($scope.maplist[j].Hall);
+       console.log(uniqueHall);
+       }}
+       }
        }
 
-    }
-     catch(e){}
 
- };
- };
+           console.log($scope.locMovie);
+console.log($scope.book.CityName);
+
+
+
+                      console.log(uniqueNames);
+                        console.log(uniqueNames);
+
+                          console.log($scope.locMovie);
+
+    });
+
+};
+$scope.locMovie=uniqueNames;
+$scope.loctheat=uniqueHall;
+
+
+      refreshMape();
+
+      var refreshTheat = function () {
+            $http.get('/theater/theater').success(function (response) {
+                console.log('theater READ IS SUCCESSFUL');
+                $scope.thtrelist = response;
+                $scope.thtre = "";
+            });
+        };
+
+        refreshTheat();
+
+        // var refreshSho = function () {
+        //       $http.get('/showt/showt').success(function (response) {
+        //           console.log('READ IS SUCCESSFUL');
+        //           $scope.timlist = response;
+        //           $scope.tim = "";
+        //       });
+        //   };
+        //
+        //   refreshSho();
+        //
+        //
+        //
+        //     var refresh = function() {
+        //         $http.get('/movie/movie').success(function(response) {
+        //             console.log('READ IS SUCCESSFUL');
+        //             $scope.moviList = response;
+        //             $scope.movi = "";
+        //         });
+        //     };
+        //
+        //     refresh();
+
+
+
+            // var refreshConfirm = function () {
+            //
+            //     $http.get('/con/con').success(function (response) {
+            //         console.log('Confirm READ IS SUCCESSFUL');
+            //         $scope.confirmlist = response;
+            //         $scope.confirm = "";
+            // });
+            // };
+            //
+            // refreshConfirm();
+
+
+          // $scope.submitForm=function(){
+          //
+          // }
+
+
+
+        };
+
+// var date=[];
