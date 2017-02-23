@@ -1,47 +1,35 @@
 <style>
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
-/*h1 { font-size: 1.5em; margin: 10px; }*/
-
-/****** Style Star Rating Widget *****/
-
-.rating {
-  border: none;
-  float: left;
+/*#rateStatus{
+float:left;
+clear:both;
+width:100%;
+height:20px;}
+#rateMe{
+float:left;
+clear:both;
+width:100%;
+height:auto;
+padding:0px;
+margin:0px;
 }
-
-.rating > input { display: none; }
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
+#rateMe li{
+float:left;
+list-style:none;
 }
-
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
+#rateMe li a:hover,
+#rateMe .on{
+background:url(star_on.png) no-repeat;}
+#rateMe a{float:left;background:url(star_off.png)}
+#ratingSaved{
+display:none;
 }
+.saved{color:red; }*/
 
-.rating > label {
-  color: #ddd;
- float: right;
-}
 
-/***** CSS Magic to Highlight Stars on Hover *****/
 
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
 
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
 div.stars {
 
   width: 270px;
@@ -111,41 +99,28 @@ label.star:before {
 
 </style>
 
-<div class="container" style="margin-top: 100px;">
-<h1><b>Review&Rating</b></h1>
+<div class="container" style="margin-top: 145px;">
   <div>
 
-    <img src="{{movieinfo.moviPoster}}" style="width:300px;height: 400px;"></div>
+    <img src="{{movieinfo.moviPoster}}" style="    width:480px;
+      height: 550px;
+      float: right;"></div>
 
 
-<div class="table-responsive" style="float: right;margin-top: -400px;margin-right: 510px;">
+<div class="table-responsive">
   <table class="table">
-    <tr>
-      <td><b>User Name</b></td>
-      <td>
-       <input type="text" ng-model="confirm.conUser" placeholder="name"></input>
-    </td>
-    </tr>
-
-    <tr>
-      <td><b>E-mail ID</b></td>
-      <td>
-        <input type="text" ng-model="confirm.conMail" placeholder="abcd123@gmail.com"></input>
-
-    </td>
-
   <tr>
     <td><b>Movie title</b></td>
     <td>
     <p>{{movieinfo.moviTitle}}</p>
 </td>
 </tr>
-<!-- <tr>
-  <td><b>Year-</b></td>
+<tr>
+  <td><b>Year</b></td>
   <td>
-  <p>{{movieinfo.moviLanguage}}</p>
+  <p>{{movieinfo.moviYear}}</p>
 </td>
-</tr> -->
+</tr>
 
 <tr>
   <td><b>Language</b></td>
@@ -158,63 +133,112 @@ label.star:before {
   <td><b>Rating</b></td>
   <td>
     <form>
-      <!-- <div style="float: left;">
+      <div style="float: left;">
 
-      <input ng-model="Rating.rateFirst" ng-click="rt1()" class="star star-5" id="star-5" type="radio" name="star" value="1"/>
+      <input ng-model="rate.rating" class="star star-5" id="star-5" type="radio" name="star" value="5"/>
 
       <label class="star star-5" for="star-5"></label>
 
-      <input ng-model="Rating.rateSecond" class="star star-4" id="star-4" type="radio" name="star" value="2"/>
+      <input ng-model="rate.rating" class="star star-4" id="star-4" type="radio" name="star" value="4"/>
 
       <label class="star star-4" for="star-4"></label>
 
-      <input ng-model="Rating.rateThird" class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+      <input ng-model="rate.rating" class="star star-3" id="star-3" type="radio" name="star" value="3"/>
 
       <label class="star star-3" for="star-3"></label>
 
-      <input ng-model="Rating.rateFourth" class="star star-2" id="star-2" type="radio" name="star" value=4/>
+      <input ng-model="rate.rating" class="star star-2" id="star-2" type="radio" name="star" value="2"/>
 
       <label class="star star-2" for="star-2"></label>
 
-      <input ng-model="Rating.rateFifth" class="star star-1" id="star-1" type="radio" name="star" value=5/>
+      <input ng-model="rate.rating" class="star star-1" id="star-1" type="radio" name="star" value="1"/>
 
-      <label class="star star-1" for="star-1"></label> -->
-      <fieldset class="rating">
-          <input type="radio" ng-model="Rating.rateFifth" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-          <input type="radio" ng-model="Rating.rateFourthhalf" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-          <input type="radio" ng-model="Rating.rateFourth" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-          <input type="radio" ng-model="Rating.rateThirdhalf" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-          <input type="radio" ng-model="Rating.rateThird" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-          <input type="radio" ng-model="Rating.rateSecondhalf" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-          <input type="radio" ng-model="Rating.rateSecond" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-          <input type="radio" ng-model="Rating.rateFirsthalf" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-          <input type="radio" ng-model="Rating.rateFirst" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-          <input type="radio" ng-model="Rating.rateHalf" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-      </fieldset>
+      <label class="star star-1" for="star-1"></label>
+
     </form>
   </div>
+
+
+
+
 </td>
 </tr>
 
+<tr>
+  <td><b>User Name</b></td>
+  <td>
+  <input type="text" ng-model="rate.cnUser">
+</td>
+</tr>
+
+<tr>
+  <td><b>E-mail ID</b></td>
+  <td>
+<input type="email" ng-model="rate.cnMail">
+</td>
 
 <tr>
   <td><b>Comments</b></td>
   <td>
     <form>
     <div class="form-group">
-      <!-- <label for="comment"></label> -->
-      <textarea ng-model="userComments" class="form-control" rows="5" cols="3" id="comment" placeholder="write your comments here..."></textarea>
+      <label for="comment">Comment:</label>
+      <textarea ng-model="rate.comments" class="form-control" rows="5" cols="3" id="comment"></textarea>
     </div>
 
     </form>
 </td>
 </tr>
 <tr>
-  <td><button class="btn btn-primary"><a href="#/"><span style="color: white;">Back</button></td>
-  <td><button ng-click="ConfirmBook(confirmlist)"  class="btn btn-primary">Post</button></td>
-
+  <td><button ng-click="doneRate()"  class="btn btn-primary">DONE</button></td>
+  <td><button ng-click="confirmRate()"  class="btn btn-primary">SUBMIT</button></td>
 </tr>
 
 <table>
 </div>
+
+
+<!-- <span id="rateStatus">Rate Me...</span>
+<span id="ratingSaved">Rating Saved!</span>
+<div id="rateMe" title="Rate Me...">
+<a onclick="rateIt(this)" id="_1" title="Bad" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_2" title="Good" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_3" title="Better" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_4" title="Best" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_5" title="Awesome" onmouseover="rating(this)" onmouseout="off(this)"></a>
+
+</div> -->
 </div>
+
+<!-- <tr>
+  <td><b>Mail ID</b></td>
+  <td>
+
+</td>
+</tr>
+
+
+
+
+<tr>
+
+  <td>
+  </td>
+</tr>
+
+
+</table>
+</div>
+
+
+  <div>
+  <p></p>
+<p>{{movieinfo.moviYear}}</p>
+<p></p>
+
+<div>
+
+
+</div>
+
+</div> -->

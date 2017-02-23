@@ -24,20 +24,20 @@
 
   <td><b>Select City</b></td>
 
-  <td><select class="form-control" ng-model="book.CityName">
-        <option ng-repeat="map in maplist|filter:movieinfo.moviTitle">{{map.City}}</option>
+  <td><select class="form-control" id="selected" ng-click="sel()" ng-model="book.CityName">
+        <option ng-repeat="l in locMovie" value={{l}}>{{l}}</option>
   </select></td>
 
 </tr>
 <tr>
   <td><b>Select Theater</b></td>
   <td><select class="form-control" ng-model="book.HallName">
-        <option ng-repeat="map in maplist|filter:movieinfo.moviTitle|filter:book.city">{{map.Hall}}</option>
+        <option ng-repeat="t in loctheat" value={{t}}>{{t}}</option>
   </select></td>
 </tr>
 <tr>
   <td><b>Select Date</td>
-  <td><input ng-blur="d()" type="date" id="datebook" class="form-control" ng-model="book.Day"/></td>
+  <td><input type="date" id="datebook" class="form-control"/></td>
  </tr>
  <tr>
    <td><b>Select Showtime</b></td>
@@ -49,9 +49,9 @@
 
 <td>
   <div>
-    <select class="form-control"  ng-model="book.ShowTime">
+    <select class="form-control"  ng-model="book.ShowTime" ng-change="showseat()">
 
-        <option  ng-repeat="map in maplist|filter:movieinfo.moviTitle|filter:book.hall">{{map.showtime}}</option>
+        <option  ng-repeat="map in maplist|filter:movieinfo.moviTitle|filter:book.HallName">{{map.showtime}}</option>
 
 </select>
 </div>
@@ -83,20 +83,23 @@
        <option>120</option>
        <option>150</option>
  </select> -->
- <button class="btn btn-default">10</button>
- <button class="btn btn-default">100</button>
- <button class="btn btn-default">150</button>
-
+ </select>
+<select ng-model="book.Amount" ng-change="add()">
+  <option value="10">10</option>
+  <option value="100">100</option></select>
 </td>
 </tr>
 
   </table>
+
+
 </div>
 
 </tbody>
   <div class="table-responsive" style="margin-top: 0%;">
     <div  style="margin-left: 140px;"><h3>SEAT ARRANGEMENT</h3></div>
 </div >
+<div>
     <table class="seatLayout" >
         <div class="legend" style="padding: 0px 5px 5px 0px; margin-left: 140px;">
            <div> <img src="../resrc/images/W_chair.gif">Available</div>
@@ -169,10 +172,12 @@
       <tr>
         <td><b>Selected seat</b></td>
       <td><p id = "seating"></p></td></tr>
-<tr><td><b>Amount</b></td>
-<td><input ng-model="book.Amount"></input></td></tr>
+<!-- <tr><td><b>Amount</b></td></tr> -->
+<!-- </tr></tr> -->
 <tr><td><button style="background-color: black;" class="button  btn btn-primary"><span style="color: white;">Back</span></button></td>
-<td><button ng-click = "confirm()" style="background-color: black;" class="button  btn btn-primary"><span style="color: white;">Book</span></button></td></tr>
+<!-- <td><button ng-click="confirm()" style="background-color: black;" class="button  btn btn-primary">Book</button></td></tr> -->
+<td>
+<button ng-click="bk()">Book</button></td></tr>
 </tbody>
 </table>
-</div>
+</div></div>
