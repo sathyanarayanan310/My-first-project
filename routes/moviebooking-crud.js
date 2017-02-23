@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require('mongoose');
 
 var bookSchema = mongoose.Schema({
-  bookingid:String,
+  // bookingid:String,
   FilmName:String,
   CityName:String,
   HallName:String,
@@ -14,7 +14,7 @@ var bookSchema = mongoose.Schema({
   ShowTime:Array,
   Amount:String,
   nofseats:String,
-  seatNo:String
+  seatNo:Array
 
  });
 var Book = mongoose.model('Book',bookSchema, 'bookTable');
@@ -44,8 +44,8 @@ router.post('/book', function(req, res){
   var day= req.body.Day;
   var show = req.body.ShowTime;
   var money = req.body.Amount;
-  var nseats = req.body.Nofseat;
-  var seat = req.body.SeatNo;
+  var nseats = req.body.nofseats;
+  var seat = req.body.seatNo;
 
 var book1 = new Book({
     FilmName:filmname,
@@ -54,8 +54,8 @@ var book1 = new Book({
     Day:day,
     ShowTime:show,
     Amount:money,
-    Nofseat:nseats,
-    SeatNo:seat,
+    nofseats:nseats,
+    seatNo:seat,
 });
 
   book1.save(function(err, docs){

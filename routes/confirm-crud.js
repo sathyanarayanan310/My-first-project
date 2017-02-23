@@ -12,10 +12,8 @@ var confirmSchema = mongoose.Schema({
   conbookingid:String,
   conUser:String,
   conMail:String,
-  conTitle:String,
-
-
-
+  conCityName:String,
+  conFilmName:String,
   conHallName:String,
   conDay:String,
   conShowTime:String,
@@ -25,8 +23,7 @@ var confirmSchema = mongoose.Schema({
 
  });
 
-var Confirm = mongoose.model('Confirm',con
-firmSchema,'confirmTable');
+var Confirm = mongoose.model('Confirm',confirmSchema,'confirmTable');
 
 
 router.get('/con', function (req, res) {
@@ -47,30 +44,30 @@ router.get('/con/:id', function (req, res) {
 
 router.post('/con', function(req, res){
   console.log(req.body);
-  var cId = req.body.conbookingid;
+  // var cId = req.body.conbookingid;
   var cuser = req.body.conUser;
   var cmail = req.body.conMail;
-  var cMovie = req.body.conTitle;
+  var cMovie = req.body.conFilmName;
   var cCity= req.body.conCityName;
   var ctheater = req.body.conHallName;
   var cDate= req.body.conDay;
   var cShow = req.body.conShowTime;
   var cAmnt = req.body.conAmount;
-  var cNumbers = req.body.conNoTickets;
-  var cSeat = req.body.conseatnumbers;
+  var cNumbers = req.body.connofseats;
+  var cSeat = req.body.conseatNo;
 
   var confirm1 = new Confirm({
-    conbookingid:cId,
+    // conbookingid:cId,
     conUser:cuser,
     conMail:cmail,
-    conTitle:cMovie,
+    conFilmName:cMovie,
     conCityName:cCity,
     conHallName:ctheater,
     conDay:cDate,
     conShowTime:cShow,
     conAmount:cAmnt,
-    conNofTickets:cNumbers,
-    conseatnumbers:cSeat
+    connofseats:cNumbers,
+    conseatNo:cSeat
 });
 
   confirm1.save(function(err, docs){

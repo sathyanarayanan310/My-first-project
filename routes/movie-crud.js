@@ -115,7 +115,7 @@ var movieSchema = mongoose.Schema({
    moviDirector:String,
    moviActors:String,
    moviPlot:String,
-
+moviRating:String
    });
 
 var Movie = mongoose.model('Movie', movieSchema, 'movie');
@@ -160,6 +160,7 @@ router.post('/movie', function(req, res){
    var dir = req.body.Director;
    var act = req.body.Actors;
    var desc = req.body.Plot;
+   var rew = req.body.Rating;
    var movie1 = new Movie({
    moviTitle:title,
    moviYear:year,
@@ -168,8 +169,8 @@ router.post('/movie', function(req, res){
    moviGenre:genre,
    moviDirector:dir,
    moviActors:act,
-   moviPlot:desc
-
+   moviPlot:desc,
+   moviRating:rew
 
  });
 
