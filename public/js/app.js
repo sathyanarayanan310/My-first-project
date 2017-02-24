@@ -50,7 +50,7 @@ app.config(function($routeProvider) {
     controller: 'BookingController',
   })
   .when('/cancellation', {
-    templateUrl: 'views/sample.html',
+    templateUrl: 'views/cancellation.html',
     controller: 'CancellationController',
   })
   .when('/admin', {
@@ -65,6 +65,14 @@ app.config(function($routeProvider) {
     templateUrl: 'views/moviebooking.html',
     controller: 'MovieBookingController',
 
+  })
+  .when('/rating', {
+    templateUrl: 'views/rating.html',
+    controller: 'RatingController',
+  })
+  .when('/confirm', {
+    templateUrl: 'views/confirm.html',
+    controller: 'ConfirmController',
   })
   .otherwise({
     redirectTo: 'views/home.html',
