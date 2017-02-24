@@ -38,11 +38,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" class="navbar navbar-inverse">
     <!-- <div class="container-fluid"> -->
 <div class="navbar-header">
-<a class="navbar-brand" href="#/"><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a>
+  <a class="navbar-brand" href="#/"><img src="../resrc/images/mera.png" alt="mera" style="height: 110px;width: 150px;"></a>
+<!-- <a class="navbar-brand" href="#/"><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a> -->
 <ul class="nav navbar-nav navbar-left" style="margin-top: 1%;" >
                   <li class="activate"><a href="#/">Home</a></li>
-                   <li><a href="#">About Us</a></li>
-                    <li><a href="#">Booking</a></li>
+                   <li><a ng-click = "bookingmovi(m)">About Us</a></li>
+                    <li><a href="">Booking</a></li>
 <div class="input-group" style="margin-top: 1%;">
 <!-- <input type="text" class="form-control" placeholder="Search">
         <button class="btn btn-default" type="submit" style="margin-left: 100%;margin-top: -24%;">
@@ -52,16 +53,14 @@
 </ul>
 
 <ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -70%;">
-  <li><a href="#">Location<span class="icon-location" class="glyphicons glyphicons-nearby-square"></span></a></li>
-  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-    href="#">My Account<span class="caret"></span></a>
+  <li><a href="">Location<span class="icon-location" class="glyphicons glyphicons-nearby-square"></span></a></li>
+  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">My Account<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
          <li class="dropdown-header">Your Profile</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Bookings</a></li>
-     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Cancellation</a></li>
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#/cancellation">Your Cancellation</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change account</a></li></ul></li>
-     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-       href="#">Login<span class="caret"></span></a>
+     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Login<span class="caret"></span></a>
        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
          <li class="dropdown-header">user login<span class="glyphicons glyphicons-log-in"<</span></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">signin/signup</a></li>
@@ -101,8 +100,24 @@
   <br>
   <footer style="background-color: black;">
 <div>
-  <p>al;fdsbnak;ofbn
-  </p>
+  <div style="margin-left: 40%;">
+  <a href="#/"><span style="font-weight:bold;font-size: -webkit-xxx-large;font-family: cursive;">Mera Movie</a>
+    <h4 style="color: white;    margin-left: 83px;">follow us on</h4>
+  </div>
+
+<div style="margin-left: 42px;">
+
+<p>
+
+  <a href="https://twitter.com/login"><img src="../resrc/images/tw.png" alt="tw" width="100" height="100" style="margin-left: 450px;"></a>
+    <a href="https://www.facebook.com/"><img src="../resrc/images/fb.png" alt="fb" width="100" height="100" style="margin-left: 20px;"></a>
+      <a href="https://www.instagram.com/accounts/login/">  <img src="../resrc/images/insta.png" alt="insta" width="100" height="100" style="margin-left:20px;"></a>
+  </p>  </div>
+
+<p style="color: white;text-align: center;">
+  Copyright 2017 © MeraMovie Entertainment Pvt. Ltd. All Rights Reserved.<br>
+The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.
+</p>
 </div>
   </footer>
 <script type="text/javascript" src="/build/bundle.js"></script>
