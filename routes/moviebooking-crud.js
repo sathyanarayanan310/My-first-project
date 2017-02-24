@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require('mongoose');
 
 var bookSchema = mongoose.Schema({
-  // bookingid:String,
+  bookingid:String,
   FilmName:String,
   CityName:String,
   HallName:String,

@@ -44,7 +44,7 @@ router.get('/con/:id', function (req, res) {
 
 router.post('/con', function(req, res){
   console.log(req.body);
-  // var cId = req.body.conbookingid;
+  var cId = req.body.conbookingid;
   var cuser = req.body.conUser;
   var cmail = req.body.conMail;
   var cMovie = req.body.conFilmName;
@@ -57,7 +57,7 @@ router.post('/con', function(req, res){
   var cSeat = req.body.conseatNo;
 
   var confirm1 = new Confirm({
-    // conbookingid:cId,
+    conbookingid:cId,
     conUser:cuser,
     conMail:cmail,
     conFilmName:cMovie,

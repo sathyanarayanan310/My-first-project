@@ -49,7 +49,8 @@ router.post('/rt', function(req, res){
   var movie = req.body.Title;
   var user = req.body.cnUser;
   var email = req.body.cnMail;
-var lang = req.body.moviLanguage;
+  var lang = req.body.moviLanguage;
+  var yrs = req.body.moviYear;
   var words= req.body.comments;
   var totalrating = req.body.Total;
 
@@ -64,7 +65,7 @@ var rate1 = new Rate({
     cnUser:user,
     cnMail:email,
     moviLanguage:lang,
-
+    moviYear:yrs,
     comments:words,
     Total:totalrating
 
