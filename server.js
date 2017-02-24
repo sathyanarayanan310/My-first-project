@@ -33,7 +33,7 @@ app.use('/theater', routesTheater);
 app.use('/showt', routesShow);
 app.use('/map', routesMapping);
 app.use('/book', routesBooking);
-app.use('/rtrv', routesRating);
+app.use('/rt', routesRating);
 app.use('/con', routesConfirm);
 
 
