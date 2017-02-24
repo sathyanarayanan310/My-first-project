@@ -1,5 +1,59 @@
 <style>
+.rating {
+    float:left;
+}
 
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
 /*#rateStatus{
 float:left;
 clear:both;
@@ -99,16 +153,29 @@ label.star:before {
 
 </style>
 
-<div class="container" style="margin-top: 145px;">
+<div class="container" style="margin-top: 100px;">
+  <h1>Rating&Review</h1>
   <div>
 
-    <img src="{{movieinfo.moviPoster}}" style="    width:480px;
-      height: 550px;
-      float: right;"></div>
+    <img src="{{movieinfo.moviPoster}}" style="width: 350px;height: 460px;float: left;">
+  </div>
 
 
 <div class="table-responsive">
   <table class="table">
+    <tr>
+      <td><b>User Name</b></td>
+      <td>
+      <input type="text" ng-model="rate.cnUser" placeholder="username">
+    </td>
+    </tr>
+
+    <tr>
+      <td><b>E-mail ID</b></td>
+      <td>
+    <input type="email" ng-model="rate.cnMail" placeholder="abcd1234@gmail.com">
+    </td>
+
   <tr>
     <td><b>Movie title</b></td>
     <td>
@@ -132,7 +199,7 @@ label.star:before {
 <tr>
   <td><b>Rating</b></td>
   <td>
-    <form>
+    <!-- <form>
       <div style="float: left;">
 
       <input ng-model="rate.rating" class="star star-5" id="star-5" type="radio" name="star" value="5"/>
@@ -155,7 +222,16 @@ label.star:before {
 
       <label class="star star-1" for="star-1"></label>
 
-    </form>
+    </form> -->
+    <fieldset class="rating">
+    <!-- <legend>Please rate:</legend> -->
+    <input type="radio" ng-model="rate.rating" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+    <input type="radio" ng-model="rate.rating" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" ng-model="rate.rating" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" ng-model="rate.rating" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+    <input type="radio" ng-model="rate.rating" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+</fieldset>
+
   </div>
 
 
@@ -164,34 +240,22 @@ label.star:before {
 </td>
 </tr>
 
-<tr>
-  <td><b>User Name</b></td>
-  <td>
-  <input type="text" ng-model="rate.cnUser">
-</td>
-</tr>
-
-<tr>
-  <td><b>E-mail ID</b></td>
-  <td>
-<input type="email" ng-model="rate.cnMail">
-</td>
 
 <tr>
   <td><b>Comments</b></td>
   <td>
     <form>
     <div class="form-group">
-      <label for="comment">Comment:</label>
-      <textarea ng-model="rate.comments" class="form-control" rows="5" cols="3" id="comment"></textarea>
+
+      <textarea ng-model="rate.comments" class="form-control" rows="5" cols="3" id="comment" placeholder="Write your comments here..."></textarea>
     </div>
 
     </form>
 </td>
 </tr>
 <tr>
-  <td><button ng-click="doneRate()"  class="btn btn-primary">DONE</button></td>
-  <td><button ng-click="confirmRate()"  class="btn btn-primary">SUBMIT</button></td>
+  <td></td>
+  <td><button ng-click="doneRate()"  class="btn btn-primary">SUBMIT</button><button ng-click="confirmRate()"  class="btn btn-primary" style="margin-left: 40px;">DONE</button></td>
 </tr>
 
 <table>

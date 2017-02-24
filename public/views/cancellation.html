@@ -1,3 +1,59 @@
-<div>
-  {{ cancellation }}
+<div class="container" style="margin-top: 150px;">
+<div class="table-responsive">
+  <table class="table">
+    <h4>
+      Booking Cancellation </h4>
+<tr>
+
+  <td>BOOKING ID</td>
+  <td><input type="text" ng-model="idNo"></td>
+
+  </tr>
+  <tr>
+    <td>MOVIE NAME</td>
+    <td><input type="text" ng-model="movie"></td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <button type="button" ng-click="showdetails()" class="btn btn-danger">CHECK DETAILS</button>
+    </td>
+
+  </tr>
+
+ </table>
+
+<div ng-show="showd">
+
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>TITLE</th>
+        <th>CITY</th>
+        <th>THEATER</th>
+        <th>DATE</th>
+        <th>SHOW TIME</th>
+        <th>SEAT NO</th>
+      <th>AMOUNT</th></tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>{{cancellist.conFilmName}}</td>
+       <td>{{cancellist.conCityName}}</td>
+       <td>{{cancellist.conHallName}}</td>
+       <td>{{cancellist.conDay}}</td>
+       <td>{{cancellist.conShowTime}}</td>
+        <td>{{cancellist.conseatNo}}</td>
+        <td>{{cancellist.conAmount}}</td>
+       <td><button type="button" ng-click="cancelBook(cancellist)" class="btn btn-danger">CANCEL</button></td>
+
+     </tr>
+   </tbody>
+    </table>
+  </div>
+</div>
+
+
+
 </div>
