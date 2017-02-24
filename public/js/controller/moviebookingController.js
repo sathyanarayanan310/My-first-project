@@ -120,6 +120,13 @@ $rootScope.seatArrange=[];
               };
 
               $scope.bk = function() {
+                var arr = [];
+while(arr.length < 1){
+    var randomnumber = Math.ceil(Math.random()*100000)
+    if(arr.indexOf(randomnumber) > -1) continue;
+    arr[arr.length] = randomnumber;
+}
+$scope.book.bookingid= arr;
                 date=document.getElementById("datebook").value;
                 $scope.book.FilmName=$scope.movieinfo.moviTitle;
               $scope.book.seatNo=selected;

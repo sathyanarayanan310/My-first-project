@@ -28,7 +28,7 @@ $scope.ConfirmBook = function () {
   $scope.confirm.conAmount=$scope.confirmInfo.Amount;
   $scope.confirm.connofseats=$scope.confirmInfo.nofseats;
   $scope.confirm.conseatNo=$scope.confirmInfo.seatNo;
-
+$scope.confirm.conbookingid=$scope.confirmInfo.bookingid;
 
   console.log($scope.confirm);
 

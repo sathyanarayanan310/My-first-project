@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($scope, $http,$log, $rootScope,$location) {
+module.exports = function($scope, $http, $log, $rootScope, $location) {
 $scope.movieinfo = $rootScope.moviebooking;
 
 console.log(  $scope.movieinfo );
@@ -26,7 +26,7 @@ var refresh = function() {
 refresh();
 var cnt=0;
 
-$scope.ratingreview= function () {
+$scope.doneRate= function () {
   $scope.rate.Title=$scope.movieinfo.moviTitle;
 $scope.rate.moviYear=$scope.movieinfo.moviYear;
   $scope.rate.moviLanguage=$scope.movieinfo.moviLanguage;
