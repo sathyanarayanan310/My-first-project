@@ -2,19 +2,18 @@
 <html lang="en">
 
 <head>
-  <title>Movie Booking</title>
+  <title>Mera Movie</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- seat arr -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -36,42 +35,46 @@
 <header>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" class="navbar navbar-inverse">
-    <!-- <div class="container-fluid"> -->
+    <div class="container-fluid">
 <div class="navbar-header">
-  <a class="navbar-brand" href="#/"><img src="../resrc/images/mera.png" alt="mera" style="height: 110px;width: 150px;"></a>
+  <a class="navbar-brand" href="#/home"><img src="../resrc/images/mera.png" alt="mera" style="height: 110px;width: 150px;"></a>
 <!-- <a class="navbar-brand" href="#/"><span style="font-weight:bold;font-size: xx-large;font-family: cursive;">Mera Movie</a> -->
 <ul class="nav navbar-nav navbar-left" style="margin-top: 1%;" >
-                  <li class="activate"><a href="#/">Home</a></li>
-                   <li><a ng-click = "bookingmovi(m)">About Us</a></li>
-                    <li><a href="">Booking</a></li>
-<div class="input-group" style="margin-top: 1%;">
+                  <li class="activate"><a href="#/home">Home</a></li>
+<li><a href ="">Movies</a></li>
+                    <li><a href="#/trailer">Trailers</a></li>
+
+<!-- <div class="input-group" style="margin-top: 1%;"> -->
 <!-- <input type="text" class="form-control" placeholder="Search">
         <button class="btn btn-default" type="submit" style="margin-left: 100%;margin-top: -24%;">
   <i class="glyphicon glyphicon-search"></i>
 </button> -->
-</div>
+
 </ul>
 
-<ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -70%;">
-  <li><a href="">Location<span class="icon-location" class="glyphicons glyphicons-nearby-square"></span></a></li>
-  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">My Account<span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+<ul class="nav navbar-nav navbar-right" style="margin-top: 11px;margin-right: -65%;">
+  <li><a href="#/cancellation">Ticket cancel<span class="icon-location"></span></a></li>
+  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" >User Login<span class="caret"></span></a><li>
+      <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
          <li class="dropdown-header">Your Profile</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Your Bookings</a></li>
      <li role="presentation"><a role="menuitem" tabindex="-1" href="#/cancellation">Your Cancellation</a></li>
-     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change account</a></li></ul></li>
-     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Login<span class="caret"></span></a>
-       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-         <li class="dropdown-header">user login<span class="glyphicons glyphicons-log-in"<</span></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">signin/signup</a></li>
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change account</a></li></ul></li> -->
+     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#/login">Admin Login</a></li>
+     <!-- <li class="dropdown"><a href="#/login">Log Out</a></li> -->
+       <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+         <li class="dropdown-header">Admin login<span class="glyphicons glyphicons-log-in"<</span></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#/login">signin/signup</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">settings</a></li>
       <li class="divider"></li>
       <li class="dropdown-header">admin login<span class="glyphicons glyphicons-log-in"></span></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#/booking">signin/signup</a></li></ul></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="/login">signin/signup</a></li></ul></li> -->
    </ul>
 </div>
 
 </nav>
+<br>
+
 <!-- <div class="container" style="margin-top: 06%;">
   <div class="row">
 
@@ -100,24 +103,26 @@
   <br>
   <footer style="background-color: black;">
 <div>
-  <div style="margin-left: 40%;">
-  <a href="#/"><span style="font-weight:bold;font-size: -webkit-xxx-large;font-family: cursive;">Mera Movie</a>
-    <h4 style="color: white;    margin-left: 83px;">follow us on</h4>
+  <div style="margin-left: 40%;color: white;">
+  <h1><span style="font-weight:bold;font-size: -webkit-xxx-large;">Mera Movie</h1>
+    <h4 style="margin-left: 83px;">follow us on</h4>
   </div>
 
-<div style="margin-left: 42px;">
+<div style="margin-left: 80px;">
 
 <p>
 
-  <a href="https://twitter.com/login"><img src="../resrc/images/tw.png" alt="tw" width="100" height="100" style="margin-left: 450px;"></a>
-    <a href="https://www.facebook.com/"><img src="../resrc/images/fb.png" alt="fb" width="100" height="100" style="margin-left: 20px;"></a>
-      <a href="https://www.instagram.com/accounts/login/">  <img src="../resrc/images/insta.png" alt="insta" width="100" height="100" style="margin-left:20px;"></a>
+  <a href="https://twitter.com/login"><img src="../resrc/images/tw.png" alt="tw" width="80" height="80" style="margin-left: 450px;"></a>
+    <a href="https://www.facebook.com/"><img src="../resrc/images/fb.png" alt="fb" width="80" height="80" style="margin-left: 20px;"></a>
+      <a href="https://www.instagram.com/accounts/login/">  <img src="../resrc/images/insta.png" alt="insta" width="80" height="80" style="margin-left:20px;"></a>
   </p>  </div>
-
+  <div>
+<hr>
 <p style="color: white;text-align: center;">
   Copyright 2017 © MeraMovie Entertainment Pvt. Ltd. All Rights Reserved.<br>
 The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.
-</p>
+<hr></p>
+</div>
 </div>
   </footer>
 <script type="text/javascript" src="/build/bundle.js"></script>
