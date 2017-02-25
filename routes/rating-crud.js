@@ -16,7 +16,7 @@ cnUser:String,
 cnMail:String,
 moviLanguage:String,
 moviYear:String,
-Total:String,
+// Total:String,
 comments:String
 
  });
