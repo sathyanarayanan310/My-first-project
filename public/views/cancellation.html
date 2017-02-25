@@ -1,8 +1,8 @@
 <div class="container" style="margin-top: 150px;">
 <div class="table-responsive">
   <table class="table">
-    <h4>
-      Booking Cancellation </h4>
+    <h1>
+      Booking Cancellation </h1>
 <tr>
 
   <td>BOOKING ID</td>
@@ -26,34 +26,29 @@
 
 <div ng-show="showd">
 
-     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>TITLE</th>
-        <th>CITY</th>
-        <th>THEATER</th>
-        <th>DATE</th>
-        <th>SHOW TIME</th>
-        <th>SEAT NO</th>
-      <th>AMOUNT</th></tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td>{{cancellist.conFilmName}}</td>
-       <td>{{cancellist.conCityName}}</td>
-       <td>{{cancellist.conHallName}}</td>
-       <td>{{cancellist.conDay}}</td>
-       <td>{{cancellist.conShowTime}}</td>
-        <td>{{cancellist.conseatNo}}</td>
-        <td>{{cancellist.conAmount}}</td>
-       <td><button type="button" ng-click="cancelBook(cancellist)" class="btn btn-danger">CANCEL</button></td>
+     <table class="table">
+       <tbody style="display:table-caption;margin-left:57px;padding:10px">
 
-     </tr>
+        <tr>
+          <td><b>TITLE<b></td><td>{{cancellist.conFilmName}}</td></tr>
+            <tr>
+        <td><b>CITY<b></td><td>{{cancellist.conCityName}}</td></tr>
+        <tr>
+        <td><b>THEATER<b></td><td>{{cancellist.conHallName}}</td></tr>
+        <tr>
+        <td><b>DATE<b></td><td>{{cancellist.conDay}}</td></tr>
+        <tr>
+        <td><b>SHOW TIME<b></td> <td>{{cancellist.conShowTime}}</td></tr>
+        <tr>
+        <td><b>SEAT No<b></td>  <td>{{cancellist.conseatNo}}</td></tr>
+        <tr>
+      <td><b>AMOUNT<b></td><td>{{cancellist.conAmount}}</td></tr>
+        <tr>
+<td><button type="button" class="btn btn-danger">BACK</button></td>
+<td><button type="button" ng-click="cancelBook(cancellist)" class="btn btn-danger">CANCEL</button></td></tr>
+
    </tbody>
     </table>
   </div>
 </div>
-
-
-
 </div>
