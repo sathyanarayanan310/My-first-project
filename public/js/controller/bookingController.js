@@ -3,53 +3,6 @@
 module.exports = function($scope, $http,$log) {
   $scope.booking = 'booking';
 
-  // var refresh = function () {
-  //       $http.get('/movie/movie').success(function (response) {
-  //           console.log('READ IS SUCCESSFUL');
-  //           $scope.movitlist = response;
-  //           $scope.movi = "";
-  //       });
-  //   };
-  //
-//   //   refresh();
-// var movilist={};
-//     $scope.get = function(){
-//    console.log('Hi Welcome');
-    // $http.get('http://www.omdbapi.com/?t='+$scope.movi.Title+'&y='+$scope.movi.Year+'&plot=short&r=json').success(function (response){
-//          console.log(response);
-//   for(var key in response)
-//   {
-//    if(key=='Title'|| key=='Year' || key== 'Language' || key== 'Poster' || key== 'Genre' || key== 'Director' || key== 'Actors' ||key=='Runtime')
-//        {
-//        movilist[key] = response[key];
-//        }
-//
-//      console.log(movilist);
-//
-//        }
-//             refresh5();
-//    });
-//  }
-//
-//  var refresh5 = function () {
-//                              $http.get('/movie/movie').success(function (response) {
-//                                  console.log('READ IS SUCCESSFUL');
-//                                  $scope.movilist = response;
-//                                  $scope.movi = "";
-//                              });
-//                          };
-//
-//     $scope.addMovie = function () {
-//       //  console.log(movi);
-//       //   $scope.movi=movi;
-//         // console.log($scope.movi);
-//         $http.post('/movie/movie',movilist).success(function (response) {
-//             console.log(response);
-//             console.log("CREATE IS SUCCESSFUL");
-//             refresh5();
-//         });
-//     };
-
 $scope.hall1=function(){
   alert($scope.map.Hall);
   var th_name=document.getElementById("thname").value;

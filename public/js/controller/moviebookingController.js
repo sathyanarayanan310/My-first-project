@@ -124,23 +124,32 @@ $rootScope.seatArrange=[];
 while(arr.length < 1){
     var randomnumber = Math.ceil(Math.random()*100000)
     if(arr.indexOf(randomnumber) > -1) continue;
-    arr[arr.length] = randomnumber;
+    // arr[arr.length] = randomnumber;
+    arr.push(randomnumber);
+    alert(arr);
+    console.log(arr);
 }
+
 $scope.book.bookingid= arr;
+// $scope.book.bookingid= arr;
                 date=document.getElementById("datebook").value;
                 $scope.book.FilmName=$scope.movieinfo.moviTitle;
               $scope.book.seatNo=selected;
+              var amt=parseInt($scope.Amount);
+              $scope.book.totalAmount=  amt*selected.length;
               $scope.book.Day=date;
               // console.log($scope.book.seatNo);
                   console.log($scope.book);
                   $http.post('/book/book', $scope.book).success(function (response) {
                           console.log(response);
-$rootScope.confirmPage=$scope.book;
+// $rootScope.confirm=$scope.book;
+// console.log(confirm);
                       });
-
+                      $rootScope.confirm=$scope.book;
+                     console.log(confirm);
               // alert($rootScope.moviebooking);
               $location.path('/confirm');
-              refreshBookin();
+              // refreshBookin();
             };
 
 
@@ -186,15 +195,11 @@ var uniqueTheat=[];
        }
        }
 
-
            console.log($scope.locMovie);
 console.log($scope.book.CityName);
 
-
-
                       console.log(uniqueNames);
                         console.log(uniqueNames);
-
                           console.log($scope.locMovie);
 
     });
@@ -216,45 +221,6 @@ $scope.loctheat=uniqueHall;
 
         refreshTheat();
 
-        // var refreshSho = function () {
-        //       $http.get('/showt/showt').success(function (response) {
-        //           console.log('READ IS SUCCESSFUL');
-        //           $scope.timlist = response;
-        //           $scope.tim = "";
-        //       });
-        //   };
-        //
-        //   refreshSho();
-        //
-        //
-        //
-        //     var refresh = function() {
-        //         $http.get('/movie/movie').success(function(response) {
-        //             console.log('READ IS SUCCESSFUL');
-        //             $scope.moviList = response;
-        //             $scope.movi = "";
-        //         });
-        //     };
-        //
-        //     refresh();
-
-
-
-            // var refreshConfirm = function () {
-            //
-            //     $http.get('/con/con').success(function (response) {
-            //         console.log('Confirm READ IS SUCCESSFUL');
-            //         $scope.confirmlist = response;
-            //         $scope.confirm = "";
-            // });
-            // };
-            //
-            // refreshConfirm();
-
-
-          // $scope.submitForm=function(){
-          //
-          // }
 
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function($scope, $http, $log, $rootScope, $location, $route) {
-$scope.confirmInfo =$rootScope.confirmPage;
+$scope.confirmInfo =$rootScope.confirm;
 // $scope.confirm.movieName=$scope.confirmInfo.Title;
 // $scope.confirm.CityName=$scope.confirmInfo.CityName;
 console.log($scope.confirmInfo);
@@ -25,7 +25,7 @@ $scope.ConfirmBook = function () {
   $scope.confirm.conHallName=$scope.confirmInfo.HallName;
   $scope.confirm.conDay=$scope.confirmInfo.Day;
   $scope.confirm.conShowTime=$scope.confirmInfo.ShowTime;
-  $scope.confirm.conAmount=$scope.confirmInfo.Amount;
+  $scope.confirm.conAmount=$scope.confirmInfo.totalAmount;
   $scope.confirm.connofseats=$scope.confirmInfo.nofseats;
   $scope.confirm.conseatNo=$scope.confirmInfo.seatNo;
 $scope.confirm.conbookingid=$scope.confirmInfo.bookingid;
