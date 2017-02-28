@@ -87,6 +87,7 @@ $scope.confirmRate= function () {
                             $http.put('/movie/movie/' + $scope.moviList[i]._id, $scope.moviList[i]).success(function (response) {
                                 console.log(response);
                                 refresh();
+                                alert("Rating successfull... Thanks for Rating");
                                 $location.path('/home');
                               })
                             }

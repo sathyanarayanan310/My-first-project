@@ -36,16 +36,11 @@ $scope.confirm.conbookingid=$scope.confirmInfo.bookingid;
 
     $http.post('/con/con', $scope.confirm).success(function (response) {
             console.log(response);
-alert("booking successfull");
+alert("Booking successfull... Thanks for booking");
 $location.path('/home');
 $route.reload();
-  // refreshConfirm();
-
 
         });
-
-
-
 };
 
 };

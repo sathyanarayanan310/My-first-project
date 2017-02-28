@@ -6,13 +6,6 @@ console.log($scope.idNo);
 console.log($scope.movie);
 $scope.showd=false;
 var i;
-
-  // var refreshConfirm = function () {
-  //
-  // };
-  //
-  // refreshConfirm();
-
 $scope.showdetails = function() {
 
 
@@ -47,12 +40,5 @@ $scope.showdetails = function() {
         $location.path('/home');
         // refreshConfirm();
 });
-
-
-
   }
-
-
-
-
 };

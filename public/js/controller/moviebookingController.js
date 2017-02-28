@@ -37,13 +37,13 @@ $rootScope.seatArrange=[];
     var selected=[];
     var reserved=[];
     $scope.rows = ['A', 'B', 'C', 'D',];
-       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
+       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
 
        $scope.rows1 = ['E', 'F', 'G', 'H',];
-          $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
+          $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
 
           $scope.rows2 = ['I', 'J', 'K', 'L',];
-             $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ];
+             $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
 
 
   $scope.getStatus = function(seatPos) {
@@ -113,10 +113,7 @@ $rootScope.seatArrange=[];
                     }
                   }
                     }
-
-
                   catch(e){}
-
               };
 
               $scope.bk = function() {
@@ -167,7 +164,6 @@ var uniqueObj = [];
 var uniqueHall=[];
 var uniqueTheat=[];
 
-
   var refreshMape = function () {
         $http.get('/map/map').success(function (response) {
             console.log('READ IS SUCCESSFUL');
@@ -194,10 +190,8 @@ var uniqueTheat=[];
        }}
        }
        }
-
            console.log($scope.locMovie);
 console.log($scope.book.CityName);
-
                       console.log(uniqueNames);
                         console.log(uniqueNames);
                           console.log($scope.locMovie);
@@ -207,7 +201,6 @@ console.log($scope.book.CityName);
 };
 $scope.locMovie=uniqueNames;
 $scope.loctheat=uniqueHall;
-
 
       refreshMape();
 
@@ -220,10 +213,4 @@ $scope.loctheat=uniqueHall;
         };
 
         refreshTheat();
-
-
-
-
         };
-
-// var date=[];
