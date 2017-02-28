@@ -1,26 +1,22 @@
 
-<div class="container" style="margin-top:10%">
+<div class="container" style="margin-top:10%" ng-init="moviebooking">
 
   <div class="table-responsive">
     <table class="table">
 
       <tr>
 <td><b>Movie Poster</b></td>
-<td><img src="{{movieinfo.moviPoster}}" style="width:200px;height:200px;"></td>
+<td><img src="{{moviebooking.moviPoster}}" style="width:200px;height:200px;"></td>
 </tr>
     <tr>
        <td><b>Movie Title</b></td>
-     <td>{{movieinfo.moviTitle}}</td>
+     <td>{{moviebooking.moviTitle}}</td>
    </tr>
 <tr>
   <td><b>Languages</b></td>
-  <td>{{movieinfo.moviLanguage}}</td>
+  <td>{{moviebooking.moviLanguage}}</td>
 </tr>
-<!-- <tr>
-  <td><b>Cast&Crew</b><td>
-    <td>{{movieinfo.moviActors}}</td>
-  </tr>
-  <tr> -->
+
 
   <td><b>Select City</b></td>
 
@@ -41,11 +37,7 @@
  </tr>
  <tr>
    <td><b>Select Showtime</b></td>
-   <!-- <td>
-  <select class="form-control" ng-model="book.show">
-        <option ng-repeat="map in maplist|filter:movieinfo.moviTitle|filter:book.hall">{{map.showtime}}</option>
-  </select></td>
-</tr> -->
+
 
 <td>
   <div>
@@ -78,15 +70,13 @@
 <tr>
   <td><b>Amount</b></td>
   <td>
- <!-- <select class="form-control" ng-model="book.Amount">
-        <option>10</option>
-       <option>120</option>
-       <option>150</option>
- </select> -->
+
  </select>
 <select class="form-control" ng-model="Amount" ng-change="add()">
   <option value="10">10</option>
-  <option value="100">100</option></select>
+  <option value="100">100</option>
+  <option value="150">150</option>
+</select>
 </td>
 </tr>
 
@@ -100,7 +90,9 @@
     <div  style="margin-left: 140px;"><h3>SEAT ARRANGEMENT</h3></div>
 </div >
 <div>
-    <table class="seatLayout" >
+    <table class="seatLayout" style="
+margin-left: 10%;
+">
         <div class="legend" style="padding: 0px 5px 5px 0px; margin-left: 140px;">
            <div> <img src="../resrc/images/W_chair.gif">Available</div>
           <div style="margin-left: 10%;margin-top: -20px;">  <img src="../resrc/images/R_chair.gif">Booked</div>
@@ -123,7 +115,9 @@
         </tbody>
       </table>
         <div style="margin-left: 22%;"><h4>Gold</h4></div>
-        <table class="seatLayout" >
+        <table class="seatLayout" style="
+  margin-left: 10%;
+">
         <tbody>
           <tr class="tablestyle">
                 <td class="padding-bottom"></td>
@@ -140,7 +134,9 @@
         </tbody>
     </table>
     <div style="margin-left: 22%;"><h4>Silver</h4></div>
-    <table class="seatLayout" >
+    <table class="seatLayout" style="
+margin-left: 10%;
+">
     <tbody>
       <tr class="tablestyle">
             <td class="padding-bottom"></td>
@@ -159,12 +155,12 @@
     <br>
     <br>
 
-<div style="background-color: black;width: 547px;">
-  <h4 style="color: aliceblue;margin-left: 190px;">All Eyes Faced Here</h4>
+<div style="background-color: black;width: 278px;    margin-left: 110px;">
+  <h4 style="color: aliceblue;margin-left: 50px;">All Eyes Faced Here</h4>
 </div>
 <br>
 <br>
-<div class="table-responsive" style="float: right;margin-right: 150px;margin-top: -173px;">
+<div class="table-responsive" style="float: right;margin-right: 300px;margin-top: -140px;">
 
   <table class="table">
 
@@ -172,10 +168,7 @@
       <tr>
         <td><b>Selected seat</b></td>
       <td><p id = "seating"></p></td></tr>
-      <!-- <tr><td><b>Total Amount</b></td>
-        <td ng-model="book.totalAmount"></td></tr> -->
-<!-- <tr><td><b>Amount</b></td></tr> -->
-<!-- </tr></tr> -->
+
 <tr><td><button style="background-color: black;" class="button  btn btn-primary"><span style="color: white;">BACK</span></button></td>
 <!-- <td><button ng-click="confirm()" style="background-color: black;" class="button  btn btn-primary">Book</button></td></tr> -->
 <td>

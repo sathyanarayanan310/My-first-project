@@ -1,29 +1,348 @@
-<!-- <script>
 
 
+    Questions
+    Jobs
+    Documentation
+    beta
+    Tags
+    Users
+
+Log In Sign Up
+x Dismiss
+Join the Stack Overflow Community
+Stack Overflow is a community of 6.8 million programmers, just like you, helping each other.
+Join them; it only takes a minute:
+Sign up
+How to get HTML 5 input type=“date” working in Firefox and/or IE 10
+Ask Question
+up vote
+133
+down vote
+favorite
+36
+
+
+I find it odd that input type="date" is still not supported in Firefox after all of this time. In fact, I don't think they added in much (if any) of the HTML 5 new types on an input element. Not surprised that it is not supported in IE10. So, my question is...
+
+How to get type="date" on an input element working without adding, yet another, .js file (namely jQueryUI DatePicker Widget) just to get a calendar/date for only IE and Firefox Browsers? Is there something out there that can be applied somewhere (CDN perhaps?) that will make this functionality work by default in Firefox and/or IE Browsers?? Trying to target IE 8+ Browsers and for Firefox, doesn't matter, newest version (28.0) will be fine.
+html5 forms jquery-ui internet-explorer firefox
+shareimprove this question
+
+edited Dec 31 '14 at 0:32
+Carpetsmoker
+12.9k124466
+
+asked Apr 10 '14 at 8:44
+Solomon Closson
+2,33963158
+
+17
+
+Seems ridiculous to me that Firefox still doesn't support this. I've switched from Chrome to Firefox today, just for a day/week to see what's what these days, and this immediately has me wanting to switch back! – Codemonkey Dec 2 '15 at 13:52
+11
+
+its a joke FF not supping date – SuperUberDuper Dec 2 '15 at 22:04
+
+
+Mozilla is dropping Thunderbird so they can laser focus on Firefox. Not sure why this has not been put near the top of the list. blog.mozilla.org/thunderbird/2015/12/… – drooh Jul 31 '16 at 19:53
+
+
+This is why I feel upset when people say Firefox is the best browser. – modiX Sep 22 '16 at 12:48
+
+
+Related: stackoverflow.com/a/30503903/1654265 – Andrea Ligios Nov 3 '16 at 13:15
+show 3 more comments
+9 Answers
+active
+oldest
+votes
+up vote
+113
+down vote
+
+
+You can try webshims, which is available on cdn + only loads the polyfill, if it is needed.
+
+Here is a demo with CDN: http://jsfiddle.net/trixta/BMEc9/
+
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
 </script>
+
+<input type="date" />
+
+In case the default configuration does not satisfy, there are many ways to configure it. Here you find the datepicker configurator.
+
+Note: While there might be new bugfix releases for webshim in the future. There won't be any major releases anymore. This includes support for jQuery 3.0 or any new features.
+shareimprove this answer
+
+edited Jan 11 '16 at 21:10
+
+answered Apr 10 '14 at 11:51
+alexander farkas
+7,60121828
+
+7
+
+I get an "access is denied" error when I try to run this jsfiddle in IE 11, and the date picker doesn't work. – Shavais Apr 6 '15 at 16:56
+2
+
+Too many clicks.... – Damjan Pavlica May 13 '15 at 21:31
+4
+
+This does not work on IE10...i get the same error as mentioned by @Shavais ...to get it working upgrade the jquery version to 1.11 or above..try this link – Nitin Jun 11 '15 at 10:24
+4
+
+fiddle demo doesn't work in IE11 – mike-source Jul 16 '15 at 16:25
+2
+
+Unfortunatelly, the webshims support to upcoming Jquery 3 won't be done, as informed on author's site. Being so, I would rely on good and old Jquery UI. – marionmaiden Jan 11 '16 at 2:11
+show 10 more comments
+up vote
+11
+down vote
+
+
+The type="date" is not an actual specification at this point. It is a concept Google came up with and is in their whatwg specifications (not official) and is only partially supported by Chrome.
+
+http://caniuse.com/#search=date
+
+I would not rely on this input type at this point. It would be nice to have, but I do not foresee this one actually making it. The #1 reason is it puts too much burden on the browser to determine the best UI for a somewhat complicated input. Think about it from a responsive perspective, how would any of the vendors know what will work best with your UI say at 400 pixels, 800 pixels and 1200 pixels wide?
+shareimprove this answer
+
+edited Dec 3 '14 at 17:44
+dotpush
+392114
+
+answered Apr 10 '14 at 9:17
+Chris Love
+1,633109
+
+97
+
+I don't agree, browsers should be smart enough to figure this out. I really am tired using the date pickers out there and having to keep updating them. – SuperUberDuper Dec 20 '14 at 22:57
+35
+
+Strange reasoning. Too much burden for the browsers, but not for joe web developer?!? – jeroenh Jan 19 '15 at 18:38
+25
+
+This is now part of the HTML 5 working draft: w3.org/html/wg/drafts/html/master/… – Chris Jan 26 '15 at 11:49
+6
+
+I too am glad for every new input type. They are better defined, and native, which usually means fast. – Tomáš Zato Oct 23 '15 at 22:36
+4
+
+@M.M Thanks. HTML 5 has in the meantime been upgraded to an official W3C recommendation. The new link is w3.org/TR/2014/REC-html5-20141028/… – Chris Nov 25 '15 at 7:41
+show 3 more comments
+up vote
+11
+down vote
+
+
+There's a simple way to get rid of this restriction by using the datePicker component provided by jQuery.
+
+    Include jQuery and jQuery UI libraries (I'm still using an old one)
+        src="js/jquery-1.7.2.js"
+        src="js/jquery-ui-1.7.2.js"
+
+    Use the following snip
+
+    $(function() {
+         $( "#id_of_the_component" ).datepicker({ dateFormat: 'yy-mm-dd'});
+    });
+
+See jQuery UI DatePicker - Change Date Format if needed.
+shareimprove this answer
+
+edited Sep 11 '16 at 5:32
+Noumenon
+1,00031529
+
+answered Nov 8 '15 at 7:40
+Dax
+1,44311318
+
+5
+
+OP says "working without adding, yet another, .js file (namely jQueryUI DatePicker Widget)" ... but this question is google's top hit, so your answer is still VERY helpful indeed although it doesn't answer the question. I wish I didn't have to feel bad for upvoting your post now. – Blauhirn Dec 8 '15 at 8:20
+1
+
+You needs to include jQuery UI CSS as well for showing the calendar properly. <br> <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"‌​> – YuAn Shaolin Maculelê Lai Jul 14 '16 at 3:40
+add a comment
+up vote
+9
+down vote
+
+
+Here is a full example with the date formatted in YYYY-MM-DD
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+<script>
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+$.webshims.formcfg = {
+en: {
+    dFormat: '-',
+    dateSigns: '-',
+    patterns: {
+        d: "yy-mm-dd"
+    }
+}
+};
+</script>
+<input type="date" />
+
+shareimprove this answer
+
+answered Jul 8 '15 at 21:49
+drooh
+284521
+
+
+
+Does anyone know if this allows the option to add a time picker as well? – drooh Jul 8 '15 at 21:54
+
+
+I tried your script in JSFiddle @Drooh but it does not work. Every time I select a date it appears for like a millisecond in the input field and then disappears. Can someone provide a working fiddle version with a date configuration dd/mm/yyyy? – Ryan Coolwebs Sep 30 '15 at 4:55
+
+
+Note, as of Aug 2016 webshim does not work with jQuery 3 and in my testing it doesn't work with 2.2.4 either. – drooh Aug 15 '16 at 18:27
+
+
+I've found this to be the best solution until firefox adds a date input stackoverflow.com/questions/2528706/… – drooh Aug 16 '16 at 16:12
+add a comment
+up vote
+1
+down vote
+
+
+This is just a suggestion that follows Dax's answer. (I would put it in a comment at that answer, but I don't have enough reputation yet to comment on others questions).
+
+Id's should be unique for every field, so, if you have multiple date fields in your form (or forms), you could use the class element instead of the ID:
+
+ $(function() { $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }); });
+
+and your input as:
+
+ <input type="text" class="datepicker" name="your-name" />
+
+Now, every time you need the date picker, just add that class. PS I know, you still have to use the js :(, but at least you're set for all your site. My 2 cents...
+shareimprove this answer
+
+edited Jan 25 '16 at 14:45
+
+answered Jan 25 '16 at 14:20
+codeispoetry
+11210
+
+add a comment
+up vote
+1
+down vote
+
+
+While this doesn't allow you to get a datepicker ui, Mozilla does allow the use of pattern, so you can at least get date validation with something like this:
+
+pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))'
+
+Ultimately I agree with @SuperUberDuper in that Mozilla is way behind on including this natively.
+shareimprove this answer
+
+answered Jun 20 '16 at 16:52
+ajax1515
+5110
+
+add a comment
+up vote
+0
+down vote
+
+
+Thank Alexander, I found a way how to modify format for en lang. (Didn't know which lang uses such format)
+
+ $.webshims.formcfg = {
+        en: {
+            dFormat: '/',
+            dateSigns: '/',
+            patterns: {
+                d: "yy/mm/dd"
+            }
+        }
+     };
+
+ $.webshims.activeLang('en');
+
+shareimprove this answer
+
+answered Mar 22 '15 at 0:18
+Pavel Niedoba
+607620
+
+
+
+I think the only 'en' country that uses that format is Canada. In any case, 'en' is ambiguous, because it also includes the United States, which has a 'special' date format pretty much of its own. – Michael Scheper Jan 3 '16 at 5:58
+
+
+In my case it's about overriding date format for any client locale, which might differ on client workstations. However on one particular page I want to use this date format (for copy paste reason). It's more like comment for Alexander Farkas answer but I put as separate answer because I can't paste code in comment. I'm using this in production environment for more than a year. – Pavel Niedoba Jan 21 '16 at 10:20
+
+
+Be careful. If Webshims relies on browser interpretation of the locale, you may will have unpredictable results. 'en' probably won't mean the same format on different platforms (depending on the system locale) or even in different browsers. It may be interpreted as 'en-ca' by a browser in Canada (which is most likely yyyy-mm-dd, but possibly not consistent) but 'en-in' by a browser in India (which, like most of the world, would produce dd-mm-yyyy). Just because it's in production code doesn't mean it's been properly tested—a lot of i18n bugs exist in production code, even on big sites. – Michael Scheper Jan 25 '16 at 8:07
+
+
+The last line $.webshims.activeLang('en'); should force lang (or locale) to webshims overriding browser settings, so the format is always same. – Pavel Niedoba Jan 25 '16 at 13:45
+add a comment
+up vote
+-1
+down vote
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Datepicker - Default functionality</title>
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
 <body>
-  <div>
-<table class="seatLayout" >
-    <div class="legend">
-       <div style="
-    margin-left: 20%;
-"> <img src="../resrc/images/W_chair.gif">  Available</div>
-      <div >  <img src="../resrc/images/R_chair.gif" class="padding-left">  Booked</div>
+
+<p>Date: <input type="text" id="datepicker"></p>
+
+
+</body>
+</html>
+<div data-role="page">
+  <div data-role="header">
+    <h1>Welcome To My Homepage</h1>
   </div>
-    <tbody>
-      <tr class="tablestyle">
-            <td class="padding-bottom"></td>
-            <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
-        </tr>
-        <tr class="tablestyle" ng-repeat="row in rows">
-            <td class="padding-right" ng-bind="row"></td>
-            <td class="seat" ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-                <img ng-switch-when="selected" src="../resrc/images/G_chair.gif">
-                <img ng-switch-when="reserved" src="../resrc/images/R_chair.gif">
-                <img ng-switch-default src="../resrc/images/W_chair.gif">
-            </td>
-        </tr>
-    </tbody>
-</table></div>
-</body> -->
+
+  <div data-role="main" class="ui-content">
+    <a href="#myPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Open Dialog Popup</a>
+
+    <div data-role="popup" id="myPopupDialog">
+      <div data-role="header">
+        <h1>Header Text</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <h2>Welcome to my Popup Dialog!</h2>
+        <p>jQuery Mobile is FUN!</p>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+      </div>
+
+      <div data-role="footer">
+        <h1>Footer Text</h1>
+      </div>
+    </div>
+  </div>

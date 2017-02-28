@@ -54,33 +54,6 @@
     top:2px;
     left:2px;
 }
-/*#rateStatus{
-float:left;
-clear:both;
-width:100%;
-height:20px;}
-#rateMe{
-float:left;
-clear:both;
-width:100%;
-height:auto;
-padding:0px;
-margin:0px;
-}
-#rateMe li{
-float:left;
-list-style:none;
-}
-#rateMe li a:hover,
-#rateMe .on{
-background:url(star_on.png) no-repeat;}
-#rateMe a{float:left;background:url(star_off.png)}
-#ratingSaved{
-display:none;
-}
-.saved{color:red; }*/
-
-
 
 
 
@@ -166,14 +139,14 @@ label.star:before {
     <tr>
       <td><b>User Name</b></td>
       <td>
-      <input type="text" ng-model="rate.cnUser" placeholder="username">
+      <input type="text" ng-model="rate.cnUser" class="form-control" placeholder="username" required>
     </td>
     </tr>
 
     <tr>
       <td><b>E-mail ID</b></td>
       <td>
-    <input type="email" ng-model="rate.cnMail" placeholder="abcd1234@gmail.com">
+    <input type="email" ng-model="rate.cnMail" class="form-control" placeholder="abcd1234@gmail.com" required>
     </td>
 
   <tr>
@@ -199,30 +172,7 @@ label.star:before {
 <tr>
   <td><b>Rating</b></td>
   <td>
-    <!-- <form>
-      <div style="float: left;">
 
-      <input ng-model="rate.rating" class="star star-5" id="star-5" type="radio" name="star" value="5"/>
-
-      <label class="star star-5" for="star-5"></label>
-
-      <input ng-model="rate.rating" class="star star-4" id="star-4" type="radio" name="star" value="4"/>
-
-      <label class="star star-4" for="star-4"></label>
-
-      <input ng-model="rate.rating" class="star star-3" id="star-3" type="radio" name="star" value="3"/>
-
-      <label class="star star-3" for="star-3"></label>
-
-      <input ng-model="rate.rating" class="star star-2" id="star-2" type="radio" name="star" value="2"/>
-
-      <label class="star star-2" for="star-2"></label>
-
-      <input ng-model="rate.rating" class="star star-1" id="star-1" type="radio" name="star" value="1"/>
-
-      <label class="star star-1" for="star-1"></label>
-
-    </form> -->
     <fieldset class="rating">
     <!-- <legend>Please rate:</legend> -->
     <input type="radio" ng-model="rate.rating" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
@@ -262,47 +212,4 @@ label.star:before {
 </div>
 
 
-<!-- <span id="rateStatus">Rate Me...</span>
-<span id="ratingSaved">Rating Saved!</span>
-<div id="rateMe" title="Rate Me...">
-<a onclick="rateIt(this)" id="_1" title="Bad" onmouseover="rating(this)" onmouseout="off(this)"></a>
-<a onclick="rateIt(this)" id="_2" title="Good" onmouseover="rating(this)" onmouseout="off(this)"></a>
-<a onclick="rateIt(this)" id="_3" title="Better" onmouseover="rating(this)" onmouseout="off(this)"></a>
-<a onclick="rateIt(this)" id="_4" title="Best" onmouseover="rating(this)" onmouseout="off(this)"></a>
-<a onclick="rateIt(this)" id="_5" title="Awesome" onmouseover="rating(this)" onmouseout="off(this)"></a>
-
-</div> -->
 </div>
-
-<!-- <tr>
-  <td><b>Mail ID</b></td>
-  <td>
-
-</td>
-</tr>
-
-
-
-
-<tr>
-
-  <td>
-  </td>
-</tr>
-
-
-</table>
-</div>
-
-
-  <div>
-  <p></p>
-<p>{{movieinfo.moviYear}}</p>
-<p></p>
-
-<div>
-
-
-</div>
-
-</div> -->

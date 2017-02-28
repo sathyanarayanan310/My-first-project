@@ -1,10 +1,4 @@
-<style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>
+
 
   <div class="container" style="margin-top: 110px;" class="dropdown">
 <img src="../resrc/images/banner1.jpg" alt="banner" style="margin-left: -95px;    width: 117%;">
@@ -21,7 +15,7 @@
       </div>
       </div>
       <div>
-      <div class="col-sm-5" style="margin-top: -150px;margin-left: 36px;">
+      <div class="col-sm-5" style="margin-top: -106px;margin-left: 36px;">
       <ul class="list-group">
       <li ng-show="searching" ng-repeat="m in moviList | filter:searching" ng-click = "bookingmovi(m)" class="list-group-item">{{m.moviTitle}}</li>
       </ul>
@@ -46,7 +40,9 @@
 
 <div ng-switch="movies" style="margin-top: 50px;">
 <div ng-switch-when="all">
+
 <div ng-repeat="m in moviList" class="col-xs-6 col-sm-3 col-md-4">
+ <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;    margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -54,15 +50,17 @@
 <tr><td><b>Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <!-- <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr> -->
-  <tr><td><b>Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div></div></div>
 <div ng-switch-when="Tamil" >
+
 <div ng-repeat="m in moviList|filter:'Tamil'" class="col-xs-6 col-sm-3 col-md-4">
+    <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;    margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -70,14 +68,15 @@
 <tr><td><b>Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <!-- <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr> -->
-  <tr><td><b>Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div></div></div>
 <div ng-switch-when="English" >
 <div ng-repeat="m in moviList|filter:'English'" class="col-xs-6 col-sm-3 col-md-4">
+    <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -85,14 +84,15 @@
 <tr><td><b>Released Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr>
-  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div></div></div>
 <div ng-switch-when="Hindi" >
 <div ng-repeat="m in moviList|filter:'Hindi'" class="col-xs-6 col-sm-3 col-md-4">
+    <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -100,14 +100,15 @@
 <tr><td><b>Released Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr>
-  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div></div></div>
 <div ng-switch-when="Telugu" >
 <div ng-repeat="m in moviList|filter:'Telugu'" class="col-xs-6 col-sm-3 col-md-4">
+    <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -115,14 +116,15 @@
 <tr><td><b>Released Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr>
-  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><a href="#/moviebooking"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div></div></div>
 <div ng-switch-when="Malayalam" >
 <div ng-repeat="m in moviList|filter:'Malayalam'" class="col-xs-6 col-sm-3 col-md-4">
+  <div class="thumbnail">
 <img src="{{m.moviPoster}}" style="width:230px;height:210px;margin-left: 81px;">
 <table class="table">
 <tbody style="display:table-caption;margin-left:57px;padding:10px">
@@ -130,11 +132,88 @@
 <tr><td><b>Released Year:<b></td><td>{{m.moviYear}}</td></tr>
 <!-- <tr><td><b>Cast&Crew:<b></td><td>{{m.moviActors}}</td></tr> -->
 <tr><td><b>Movie Language:<b></td><td>{{m.moviLanguage}}</td></tr>
-  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}%</b></td></tr>
+  <tr><td><b>Movie Rating:<b></td><td><b>{{m.moviRating}}<span><img src="img/love.jpg" alt="mera" style="height: 30px;width:30px;"></span></b></td></tr>
 <tr><td><button ng-click = "bookingmovi(m)" class="button  btn btn-primary"><a href="#/moviebooking"><span style="color: white;">Book</span></button></td>
 <td><button ng-click = "ratingreview(m)" class="button  btn btn-primary"><a href="#/moviebooking"><span style="color: white;">Review</span></button></td></tr>
 </tbody>
 </table>
 </div></div>
 </div>
+</div></div>
+
+
+
+<div class="container" style="margin-top: %;">
+  <h1 style="text-align: center;">MOVIE TRAILERS</h1>
+  <div>
+  <figure class="highlight1"><h1  style="margin-bottom:4px;">Tamil Movies</h1></figure></div>
+  <div class="row">
+        <div class="col-xs-6 col-sm-3 col-md-4">
+        <div class="thumbnail">
+
+  <img src="img/mov10.jpg" style="width:250px;height:250px;padding:5px;">
+  <button type="button" class="btn btn-primary btn-lg" style="margin-left: 48px;" data-toggle="modal" data-target="#IModal">Watch Trailer</button>
+
+  <div  class="modal fade" id="IModal" role="dialog">
+    <div class="modal-dialog" style="margin-left: -26%;">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">BAIRAVA TRAILER</h4>
+        </div>
+        <div class="modal-body">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/bhTN4PDm6fc?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+</div></div></div>
+<div class="col-xs-6 col-sm-3 col-md-4">
+  <div class="thumbnail">
+
+<img src="img/1a.jpg" style="width:250px;height:250px;padding:5px;">
+<button type="button" class="btn btn-primary btn-lg" style="margin-left: 48px;" data-toggle="modal" data-target="#cModal">Watch Trailer</button>
+
+<div  class="modal fade" id="cModal" role="dialog">
+<div class="modal-dialog" style="margin-left: -26%;">
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Jolly LLB 2 TRAILER</h4>
+  </div>
+  <div class="modal-body">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q07SQFmL4rM" frameborder="0" allowfullscreen></iframe>      </div>
 </div>
+
+</div>
+</div>
+</div></div>
+<div class="col-xs-6 col-sm-3 col-md-4">
+<div class="thumbnail">
+
+<img src="img/mov9.jpg" style="width:250px;height:250px;padding:5px;">
+<button type="button" class="btn btn-primary btn-lg" style="margin-left: 48px;" data-toggle="modal" data-target="#2Modal">Watch Trailer</button>
+
+<div  class="modal fade" id="2Modal" role="dialog">
+<div class="modal-dialog" style="margin-left: -26%;">
+
+<div class="modal-content">
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">PIRATES OF THE CARIBBEAN TRAILER</h4>
+</div>
+<div class="modal-body">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lsJ58L3u8qw?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div>
+</div></div>
+
+</div>
+
+<ul class="pager">
+<li><a href="#/trailer" style="margin-left: 250px;">see more..</a></li></ul>
+</div></div>
+ </div>
