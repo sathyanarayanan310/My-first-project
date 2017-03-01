@@ -52,7 +52,7 @@
 <tr>
   <td><b>No.Of Tickets<b></td>
     <td>
-      <select class="form-control" placeholder="seats" ng-model="book.nofseats">
+      <select class="form-control" placeholder="seats" ng-model="book.nofseats" id="numberticket">
         <option></option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -86,9 +86,9 @@
 </div>
 
 </tbody>
-  <div class="table-responsive" style="margin-top: 0%;">
+  <div class="table-responsive" style="margin-top: 0%;" ng-show="seatarr">
     <div  style="margin-left: 140px;"><h3>SEAT ARRANGEMENT</h3></div>
-</div >
+
 <div>
     <table class="seatLayout" style="
 margin-left: 10%;
@@ -160,6 +160,8 @@ margin-left: 10%;
 </div>
 <br>
 <br>
+</div>
+</div>
 <div class="table-responsive" style="float: right;margin-right: 300px;margin-top: -140px;">
 
   <table class="table">
@@ -175,4 +177,4 @@ margin-left: 10%;
 <button ng-click="bk()"style="background-color: black;" class="button  btn btn-primary"><span style="color: white;">BOOK</span></button></td></tr>
 </tbody>
 </table>
-</div></div>
+</div>

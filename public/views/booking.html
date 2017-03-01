@@ -452,158 +452,114 @@ visibility:hidden;
                 <li role="presentation"><a data-target="#mapping" aria-controls="mapping" role="tab" data-toggle="tab">Assign Movies With Theater</a></li>
             </ul>
 		</div>
-        <div class="col col-sm-8">
+        <div class="col col-sm-9">
             <div class="row tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="show">
-                  <table class="table" style="margin-top: 6%;">
-                  <thead>
-                  <tr>
-                  <th>Show time</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                  <td><input ng-model="tim.showTime" class="form-control"/></td>
-                  <td><button ng-click="addShow()" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                  <!-- <td><button ng-click="addShow()" class="btn btn-primary">Add Time</button></td> -->
-                  <td><button type="button" ng-click="updateShow()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td>
 
-                  <!-- <td><button ng-click="updateShow()" class="btn btn-primary">Update</button></td> -->
-                  </tr>
+                <div role="tabpanel" class="tab-pane fade active in" id="show">
+
+                  <form class="form" name="myForm" style="margin-top: 6%;" ng-submit="addShow()">
+                  <div><b>Show time<b></div>
+                  <div><input ng-model="tim.showTime" class="form-control" required/></div>
+                  <tr><td><button ng-click="addShow()" type="button" ng-disabled="myForm.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok" ></i></button></td>
+                  <td><button type="button" ng-click="updateShow()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                  </form>
+                  <table class="table">
+                  <tbody>
                   <tr ng-repeat="tim in timlist">
                   <td>{{tim.showTime}}</td>
-                  <td>
-                  <button ng-click="removeShow(tim)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                  <!-- <td><button ng-click="removeShow(tim)" class="btn btn-danger">Remove</button></td> -->
+                  <td><button ng-click="removeShow(tim)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
                   <td><button ng-click="editShow(tim)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
-                  <!-- <td><button ng-click="editShow(tim)" class="btn btn-primary">Edit</button></td> -->
                   </tr>
                   </tbody>
                   </table>
                 </div>
 
-                <div role="tabpanel" class="tab-pane fade" id="location">
-                  <table class="table" style="margin-top: 6%;">
-                <thead>
-                <tr>
-                <th>City Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><input ng-model="loc.cityName" class="form-control"/></td>
-                <td><button ng-click="addCity()" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <!-- <td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td> -->
-                <td><button type="button" ng-click="updateCity()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td>
 
-                <!-- <td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td> -->
-                </tr>
+                <div role="tabpanel" class="tab-pane fade" id="location">
+
+                  <form class="form" name="myForm1" style="margin-top: 6%;" ng-submit="addCity()">
+
+                <div><b>City Name<b></div>
+                <div><input ng-model="loc.cityName" class="form-control" minlength="3" required/></div>
+                <tr><td><button ng-click="addCity()" type="button" ng-disabled="myForm1.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
+                <td><button type="button" ng-click="updateCity()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+              </form>
+
+<table class="table">
+<tbody>
                 <tr ng-repeat="loc in loclist">
                 <td>{{loc.cityName}}</td>
                 <td><button ng-click="removeCity(loc)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                <!-- <td><button ng-click="removeCity(loc)" class="btn btn-danger">Remove</button></td> -->
-                <!-- <td><button ng-click="editCity(loc)" class="btn btn-primary">Edit</button></td> -->
                 <td><button ng-click="editCity(loc)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
                 </tr>
                 </tbody>
               </table></div>
 
+
+
                 <div role="tabpanel" class="tab-pane fade" id="theater">
-                  <table class="table" style="margin-top: 5%;">
-                <thead>
-                <tr>
-                <th>Theater Name</th>
-                <th>City</th>
-                <th>Seating Capacity</th>
-                <th>Show time</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><input ng-model="thtre.TheaterName" class="form-control"/></td>
-                <td>
-                <div class="form-group">
-                <select class="form-control" ng-model="thtre.location">
-                <option ng-repeat="loc in loclist">{{loc.cityName}}</option>
-                </select></div></td>
-
-                <td><input ng-model="thtre.seatingcapacity" class="form-control"/></td>
-
-
-                <td>
-                  <div>
-                    <select id="selecttime" class="form-control" >
-                  <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
-
+                <form class="form" name="myForm2" style="margin-top: 5%;" ng-submit="addTheater()">
+                <div><b>Theater Name<b><div><input ng-model="thtre.TheaterName" class="form-control" required/></div></div>
+                <div><b>City<b><select class="form-control" ng-model="thtre.location" required>
+                <option ng-repeat="loc in loclist" required>{{loc.cityName}}</option>
                 </select>
                 </div>
-                </td>
-                <td>
-                  <div>
-                    <td>
-<button type="button" id="add" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <!-- <td><button id="add" class="btn btn-primary">Add Time</button></td> -->
-                </div>
-                       <div>
-                               <td><select id="time" ng-model="thtre.showtime" multiple ></select></td>
-
-                  </div>
-                </td>
-                <td><button ng-click="addTheater()" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <!-- <td><button ng-click="addTheater()" class="btn btn-primary">Add Theater</button></td> -->
-                <td><button type="button" ng-click="updateTheater()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td>
-
-                <!-- <td><button ng-click="updateTheater()" class="btn btn-primary">Update</button></td> -->
-                </tr>
+                <div><b>Seating Capacity<b><input ng-model="thtre.seatingcapacity" class="form-control" required/></div>
+                <div><b>Show time<b><select id="selecttime" class="form-control" required>
+                <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
+                </select></div>
+                <div><button type="button" id="add" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></div>
+                <div><select id="time" ng-model="thtre.showtime" multiple ></select></div>
+                <tr><td><button ng-click="addTheater()" ng-disabled="myForm2.$invalid" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
+                <td><button type="button" ng-click="updateTheater()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                </form>
+                <table class="table">
+                  <thead>
+                  <tr>
+                  <th>Theater Name</th>
+                  <th>Location</th>
+                  <th>Seating Capacity</th>
+                  <th>Showtime</th>
+                  </tr>
+                  </thead>
+                <tbody>
                 <tr ng-repeat="thtre in thtrelist">
-
                 <td>{{thtre.TheaterName}}</td>
                 <td>{{thtre.location}}</td>
                 <td>{{thtre.seatingcapacity}}</td>
                 <td>{{thtre.showtime}}</td>
                 <td></td>
                   <td></td>
-                    <td></td>
-  <td><button ng-click="removeTheater(thtre)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                <!-- <td><button ng-click="removeTheater(thtre)" class="btn btn-danger">Remove</button></td> -->
-                <!-- <td><button ng-click="editTheater(thtre)" class="btn btn-primary">Edit</button></td> -->
+                 <td><button ng-click="removeTheater(thtre)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
                 <td><button ng-click="editTheater(thtre)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
                 </tr>
                 </tbody>
                 </table>
-                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum -->
-                </div>
+              </div>
 
+
+
+
+
+
+
+
+
+
+<!-- <div class="row tab-cont
+ent"> -->
                 <div role="tabpanel" class="tab-pane fade" id="movies">
-                  <table class="table" style="margin-top: 5%;">
-                <thead>
-                <tr>
-
-                <th>Movie Name</th>
-                <th>Year</th>
+                    <form class="form" name="myForm3" style="margin-top: 5%;" ng-submit="addMovie()">
 
 
-                </tr>
-                </thead>
+                <div><b>Movie Name<b><input ng-model="movi.moviTitle" class="form-control" required/></div>
+                <div><b>Year<b><input ng-model="movi.moviYear" class="form-control" required/></div>
+<tr>
+                <td><button ng-click="addMovie()" type="button" ng-disabled="myForm3.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
 
+                <td><button type="button" ng-click="updateMovie()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                <table class="table">
                 <tbody>
-                <tr>
-
-                <td>
-                  <input ng-model="movi.moviTitle" class="form-control"/>
-                </td>
-                <td>
-
-                    <input ng-model="movi.moviYear" class="form-control"/>
-                  </td>
-<td>  </td><td>  </td><td>  </td>
-<td>  </td><td>  </td><td>  </td>
-<td><button ng-click="addMovie()" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <!-- <td><button ng-click="addMovie(movi)" class="btn btn-primary">Add</button></td> -->
-                <td><button type="button" ng-click="updateMovie()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td>
-
-                <!-- <td><button ng-click="updateMovie()" class="btn btn-primary">Update</button></td> -->
-                </tr>
                 <thead>
                 <tr>
 
@@ -638,85 +594,62 @@ visibility:hidden;
                 </table>
                     <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum -->
                 </div>
+<!-- </div> -->
 
 
                 <div role="tabpanel" class="tab-pane fade" id="mapping">
-                  <table class="table" style="margin-top: 5%;">
-                <thead>
-                <tr>
-                <th>Movie</th>
-                <th>City</th>
-                <th>Theater</th>
-                <th>Show time</th>
 
-                <th>From</th>
-                <th>To</th>
+                  <form class="form" name="myForm5" style="margin-top: 5%;" ng-submit="addMap()">
 
-                </tr>
-                </thead>
+                <div><b>Movie</b><select class="form-control" ng-model="map.Film" required>
+                <option ng-repeat="m in moviList" required>{{m.moviTitle}}</option>
+                </select></div>
+                <div><b>City<b><select class="form-control" ng-model="map.City" required>
+                <option ng-repeat="loc in loclist" required>{{loc.cityName}}</option>
+                </select></div>
+                <div><b>Theater<b><select id="thname" class="form-control" ng-model="map.Hall" required>
+                <option ng-repeat="th in thtrelist |filter:map.City" required>{{th.TheaterName}}</option>
+                </select></div>
+                <div><b>Show time<b><select class="form-control" id="selecttime" ng-model="map.showtime" required>
+                  <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall" required>
+                    <option ng-repeat="t in th.showtime" value={{t}} required>{{t}}</option>
+                  </optgroup>
+                </select>
+                <div><b>date<b><input type="date" class="form-control" ng-model="map.From" required></div>
+
+<tr><td><button ng-click="addMap()" type="button" ng-disabled="myForm5.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
+<td><button type="button" ng-click="updateMap()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                </form></div>
+
+                <table class="table">
+                  <thead>
+                  <tr>
+
+                  <th>Movie Name</th>
+                  <th>Location</th>
+                  <th>Theater Name</th>
+                  <th>Showtime</th>
+                  <th>From</th>
+                  </tr>
+                  </thead>
+
                 <tbody>
-                <tr>
-
-                <td>
-                <div class="form-group">
-
-                <select class="form-control" ng-model="map.Film">
-                <option ng-repeat="m in moviList">{{m.moviTitle}}</option>
-
-                </select></div></td>
-
-                <td>
-                <div class="form-group">
-
-                <select class="form-control" ng-model="map.City">
-                <option ng-repeat="loc in loclist">{{loc.cityName}}</option>
-                </select></div></td>
-                <td>
-                <div class="form-group">
-
-                <select id="thname" class="form-control" ng-model="map.Hall" >
-
-                <option ng-repeat="th in thtrelist |filter:map.City">{{th.TheaterName}}</option>
-                </select></div></td>
-
-                 <td>
-                <div>
-                  <select class="form-control" id="selecttime" ng-model="map.showtime">
-                    <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall">
-                      <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
-                    </optgroup>
-                  </select>
-                </div></td>
-                <td><div><input type="date" class="form-control" ng-model="map.From" ></div></td>
-                <td><div><input type="date" class="form-control" ng-model="map.To"></div></td>
-<td><button ng-click="addMap()" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <!-- <td><button ng-click="addMap()" class="btn btn-primary">Add</button></td> -->
-                <!-- <td><button ng-click="updateMap()" class="btn btn-primary">Update</button></td> -->
-<td><button type="button" ng-click="updateMap()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td>
-                </tr>
                 <tr ng-repeat="m in maplist">
                 <td>{{m.Film}}</td>
                 <td>{{m.City}}</td>
                 <td>{{m.Hall}}</td>
                 <td>{{m.showtime}}</td>
                 <td>{{m.From}}</td>
-                <td>{{m.To}}</td>
-<td><button ng-click="removeMap(m)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                <!-- <td><button ng-click="removeMap(m)" class="btn btn-danger">Remove</button></td> -->
-                <!-- <td><button ng-click="editMap(m)" class="span1" class="btn btn-primary"<i class="icon-edit icon-white"></i>
-        <span><strong>Edit</strong></span>
-</button></td> -->
-                <!-- <td><button ng-click="editMap(m)" class="btn btn-primary">Edit</button></td> -->
-                <td><button ng-click="editMap(m)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
 
+                <td><button ng-click="removeMap(m)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
+                <td><button ng-click="editMap(m)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
                 </tr>
                 </tbody>
                 </table>
-                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum -->
                 </div>
-            </div>
-		</div>
-	</div>
+              </div>
+ </div>
+</div>
     <div class="row">
         <ul class="list-inline pull-right">
           <li><button type="button" class="btn btn-default btn-circle btn-xl prev-step"><i class="glyphicon glyphicon-chevron-left"></i></button>
@@ -724,12 +657,13 @@ visibility:hidden;
             <li><button type="button" class="btn btn-default btn-circle btn-xl next-step"><i class="glyphicon glyphicon-chevron-right"></i></button>
 
             <!-- <li><button type="button" class="btn btn-default next-step">Next</button></li> -->
-            <td><button type="button" class="btn btn-primary btn-circle btn-xl"><a href="#/home" style="color: white;"><i class="glyphicon glyphicon-ok"></i></a></button></td>
+            <li><button type="button" class="btn btn-primary btn-circle btn-xl"><a href="#/home" style="color: white;"><i class="glyphicon glyphicon-ok"></i></a></button></li>
             <!-- <li><button type="button" class="btn btn-default btn-circle btn-xl next-step"><i class="glyphicon glyphicon-chevron-right"></i></button>
             <li><button type="button" class="btn btn-primary"><a href="#/home" style="color: white;">Save</a></button></li> -->
         </ul>
     </div>
-</div></div></div>
+</div>
+
 
 <script>
 $(document).ready(function () {
