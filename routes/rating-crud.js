@@ -16,7 +16,7 @@ cnUser:String,
 cnMail:String,
 moviLanguage:String,
 moviYear:String,
-// Total:String,
+Total:String,
 comments:String
 
  });
@@ -55,6 +55,7 @@ router.post('/rt', function(req, res){
   var totalrating = req.body.Total;
 
 
+
 var rate1 = new Rate({
     rating:rating1,
     // rateSecond:rating2,
@@ -67,7 +68,7 @@ var rate1 = new Rate({
     moviLanguage:lang,
     moviYear:yrs,
     comments:words,
-    Total:totalrating
+    Total:totalrating,
 
 });
 
