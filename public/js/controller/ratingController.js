@@ -73,7 +73,6 @@ $scope.rate.moviYear=$scope.movieinfo.moviYear;
 refreshRate();
 
 
-
 $scope.confirmRate= function () {
                           console.log("REACHED UPDATE");
                           var i;
@@ -88,7 +87,7 @@ $scope.confirmRate= function () {
                                 console.log(response);
                                 refresh();
                                 alert("Rating successfull... Thanks for Rating");
-                                $location.path('/home');
+                                // $location.path('/home');
                               })
                             }
                           }

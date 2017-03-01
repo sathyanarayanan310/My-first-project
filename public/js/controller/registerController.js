@@ -8,6 +8,10 @@ module.exports = function ($scope, $q, $location, AuthService) {
       $scope.error = false;
       $scope.disabled = true;
 
+      var self = this;
+       self.submit = function() {
+           console.log('Form is submitted with following user');
+     };
       // call register from service
       AuthService.register($scope.registerForm.username, $scope.registerForm.password, $q)
         // handle success

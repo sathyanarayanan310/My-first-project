@@ -11,6 +11,11 @@ $scope.hall1=function(){
   console.log($scope.th);
 }
 
+var self = this;
+ self.submit = function() {
+     console.log('Form is submitted with following user');
+};
+
 var refresh = function() {
     $http.get('/movie/movie').success(function(response) {
         console.log('READ IS SUCCESSFUL');

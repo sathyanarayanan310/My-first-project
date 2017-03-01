@@ -2,6 +2,7 @@
 
 module.exports = function($scope, $http, $log, $rootScope, $location) {
   $scope.movieinfo = $rootScope.moviebooking;
+  $scope.seatarr = true;
   console.log($scope.movieinfo);
   var date;
  var details=[];
@@ -60,7 +61,19 @@ $rootScope.seatArrange=[];
                    selected.splice(index, 1)
                } else {
                    // new seat, push
-                   selected.push(seatPos);
+                   var no=document.getElementById("numberticket").value;
+console.log(no);
+                   if(selected.length>=0)
+                   {
+                     selected.push(seatPos);
+                     console.log(selected);
+                     if(selected.length==no)
+                     {
+                       $scope.seatarr=false;
+                     }
+                   }
+
+                  //  selected.push(seatPos);
                    console.log(selected);
 
                   document.getElementById("seating").innerHTML=selected;
