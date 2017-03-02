@@ -438,7 +438,30 @@ visibility:hidden;
 }
 
 </style>
+<script>
+var myApp = angular.module('myApp', []);
 
+myApp.directive("datepicker", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, elem, attrs, ngModelCtrl) {
+      var updateModel = function (dateText) {
+        scope.$apply(function () {
+          ngModelCtrl.$setViewValue(dateText);
+        });
+      };
+      var options = {
+        dateFormat: "dd/mm/yy",
+        onSelect: function (dateText) {
+          updateModel(dateText);
+        }
+      };
+      elem.datepicker(options);
+    }
+  }
+});
+</script>
 
 
 <div class="container" style="margin-top: 170px; margin-left: -1%;">
@@ -456,13 +479,18 @@ visibility:hidden;
             <div class="row tab-content">
 
                 <div role="tabpanel" class="tab-pane fade active in" id="show">
-
                   <form class="form" name="myForm" style="margin-top: 6%;" ng-submit="addShow()">
-                  <div><b>Show time<b></div>
-                  <div><input ng-model="tim.showTime" class="form-control" required/></div>
-                  <tr><td><button ng-click="addShow()" type="button" ng-disabled="myForm.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok" ></i></button></td>
-                  <td><button type="button" ng-click="updateShow()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
-                  </form>
+<table class="table">
+  <tbody>
+
+                  <tr><td><b>Show time<b></td>
+                  <td><input ng-model="tim.showTime" class="form-control" required/></td><tr>
+                  <tr><td></td><td><button ng-click="addShow()" type="button" ng-disabled="myForm.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok" ></i></button>
+                  <button type="button" ng-click="updateShow()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+
+
+                </tbody>
+                </table></form>
                   <table class="table">
                   <tbody>
                   <tr ng-repeat="tim in timlist">
@@ -476,15 +504,19 @@ visibility:hidden;
 
 
                 <div role="tabpanel" class="tab-pane fade" id="location">
-
                   <form class="form" name="myForm1" style="margin-top: 6%;" ng-submit="addCity()">
+                  <table class="table">
+                    <tbody>
 
-                <div><b>City Name<b></div>
-                <div><input ng-model="loc.cityName" class="form-control" minlength="3" required/></div>
-                <tr><td><button ng-click="addCity()" type="button" ng-disabled="myForm1.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <td><button type="button" ng-click="updateCity()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
-              </form>
 
+                <tr><td><b>City Name<b></td>
+                <td><input ng-model="loc.cityName" class="form-control" minlength="3" required/></td></tr>
+                <tr><td></td><td><button ng-click="addCity()" type="button" ng-disabled="myForm1.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+                <button type="button" ng-click="updateCity()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+
+            </tbody>
+            </table>
+           </form>
 <table class="table">
 <tbody>
                 <tr ng-repeat="loc in loclist">
@@ -498,21 +530,26 @@ visibility:hidden;
 
 
                 <div role="tabpanel" class="tab-pane fade" id="theater">
-                <form class="form" name="myForm2" style="margin-top: 5%;" ng-submit="addTheater()">
-                <div><b>Theater Name<b><div><input ng-model="thtre.TheaterName" class="form-control" required/></div></div>
-                <div><b>City<b><select class="form-control" ng-model="thtre.location" required>
+                  <form class="form" name="myForm2" style="margin-top: 5%;" ng-submit="addTheater()">
+
+                  <table class="table">
+                  <tbody>
+                <tr><td><b>Theater Name<b></td><td><input ng-model="thtre.TheaterName" class="form-control" required/></td></tr>
+                <tr><td><b>City<b></td><td><select class="form-control" ng-model="thtre.location" required>
                 <option ng-repeat="loc in loclist" required>{{loc.cityName}}</option>
                 </select>
-                </div>
-                <div><b>Seating Capacity<b><input ng-model="thtre.seatingcapacity" class="form-control" required/></div>
-                <div><b>Show time<b><select id="selecttime" class="form-control" required>
+                </td></tr>
+                <tr><td><b>Seating Capacity<b></td><td><input ng-model="thtre.seatingcapacity" class="form-control" required/></td></tr>
+                <tr><td><b>Show time<b></td><td><select id="selecttime" class="form-control" required>
                 <option ng-repeat="tim in timlist">{{tim.showTime}}</option>
-                </select></div>
-                <div><button type="button" id="add" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></div>
-                <div><select id="time" ng-model="thtre.showtime" multiple ></select></div>
-                <tr><td><button ng-click="addTheater()" ng-disabled="myForm2.$invalid" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-                <td><button type="button" ng-click="updateTheater()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                </select></td></tr>
+                <tr><td></td><td><button type="button" id="add" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+                <select id="time" ng-model="thtre.showtime" multiple></select></td></tr>
+                <tr><td></td><td><button ng-click="addTheater()" ng-disabled="myForm2.$invalid" type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+                <button type="button" ng-click="updateTheater()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
                 </form>
+              </tbody>
+            </table>
                 <table class="table">
                   <thead>
                   <tr>
@@ -550,14 +587,17 @@ visibility:hidden;
 ent"> -->
                 <div role="tabpanel" class="tab-pane fade" id="movies">
                     <form class="form" name="myForm3" style="margin-top: 5%;" ng-submit="addMovie()">
+                      <table class="table">
+                      <tbody>
 
+                <tr><td><b>Movie Name<b></td><td><input ng-model="movi.moviTitle" class="form-control" required/></td></tr>
+                <tr><td><b>Year<b></td><td><input ng-model="movi.moviYear" class="form-control" required/></td></tr>
+                <tr><td></td>
+                <td><button ng-click="addMovie()" type="button" ng-disabled="myForm3.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
 
-                <div><b>Movie Name<b><input ng-model="movi.moviTitle" class="form-control" required/></div>
-                <div><b>Year<b><input ng-model="movi.moviYear" class="form-control" required/></div>
-<tr>
-                <td><button ng-click="addMovie()" type="button" ng-disabled="myForm3.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-
-                <td><button type="button" ng-click="updateMovie()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+                <button type="button" ng-click="updateMovie()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+              </tbody>
+            </table></form>
                 <table class="table">
                 <tbody>
                 <thead>
@@ -600,32 +640,44 @@ ent"> -->
                 <div role="tabpanel" class="tab-pane fade" id="mapping">
 
                   <form class="form" name="myForm5" style="margin-top: 5%;" ng-submit="addMap()">
+                    <table class="table">
+                    <tbody>
+                <tr><td><b>Movie</b></td><td><select class="form-control" ng-change="moviclick()" name="movie" ng-model="map.Film" required>
+                <option ng-repeat="m in moviList">{{m.moviTitle}}</option>
+              </select></td></tr>
+                <tr><td><b>Language</b></td><td><input type="text" class="form-control" name="lang" ng-model="map.Language" required>
+                </td></tr>
 
-                <div><b>Movie</b><select class="form-control" ng-model="map.Film" required>
-                <option ng-repeat="m in moviList" required>{{m.moviTitle}}</option>
-                </select></div>
-                <div><b>City<b><select class="form-control" ng-model="map.City" required>
-                <option ng-repeat="loc in loclist" required>{{loc.cityName}}</option>
-                </select></div>
-                <div><b>Theater<b><select id="thname" class="form-control" ng-model="map.Hall" required>
+                <tr><td><b>City<b></td><td><select class="form-control" ng-model="map.City" required>
+                <option ng-repeat="loc in loclist">{{loc.cityName}}</option>
+                </select></td></tr>
+                <tr><td><b>Theater<b></td><td><select id="thname"  class="form-control" ng-model="map.Hall" required>
                 <option ng-repeat="th in thtrelist |filter:map.City" required>{{th.TheaterName}}</option>
-                </select></div>
-                <div><b>Show time<b><select class="form-control" id="selecttime" ng-model="map.showtime" required>
-                  <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall" required>
-                    <option ng-repeat="t in th.showtime" value={{t}} required>{{t}}</option>
+                </select></td></tr>
+                <tr><td><b>Show time<b></td><td><select class="form-control" id="selecttime" ng-model="map.showtime" required>
+                  <optgroup label="Select" ng-repeat="th in thtrelist| filter:map.Hall">
+                    <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
                   </optgroup>
                 </select>
-                <div><b>date<b><input type="date" class="form-control" ng-model="map.From" required></div>
+                <tr><div id="wrapper" ng-app="myApp">
+  <p>{{datePicker || "00/00/0000"}}</p>
+  <input type="text" ng-model="datePicker" datepicker />
+</div>
 
-<tr><td><button ng-click="addMap()" type="button" ng-disabled="myForm5.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button></td>
-<td><button type="button" ng-click="updateMap()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
-                </form></div>
+                  <td><b>date<b></td><td><input type="date" class="form-control" ng-model="map.From" required></td></tr>
+
+<tr><td></td><td><button  type="submit" ng-disabled="myForm5.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" ng-click="updateMap()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
+            </div>    </form>
+          </tbody>
+        </table>
 
                 <table class="table">
                   <thead>
                   <tr>
 
                   <th>Movie Name</th>
+                  <th>Language</th>
                   <th>Location</th>
                   <th>Theater Name</th>
                   <th>Showtime</th>
@@ -634,15 +686,16 @@ ent"> -->
                   </thead>
 
                 <tbody>
-                <tr ng-repeat="m in maplist">
-                <td>{{m.Film}}</td>
-                <td>{{m.City}}</td>
-                <td>{{m.Hall}}</td>
-                <td>{{m.showtime}}</td>
-                <td>{{m.From}}</td>
+                <tr ng-repeat="map in maplist">
+                <td>{{map.Film}}</td>
+                <td>{{map.Language}}</td>
+                <td>{{map.City}}</td>
+                <td>{{map.Hall}}</td>
+                <td>{{map.showtime}}</td>
+                <td>{{map.From}}</td>
 
-                <td><button ng-click="removeMap(m)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                <td><button ng-click="editMap(m)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
+                <td><button ng-click="removeMap(map)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
+                <td><button ng-click="editMap(map)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
                 </tr>
                 </tbody>
                 </table>
