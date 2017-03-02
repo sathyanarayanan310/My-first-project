@@ -8,7 +8,7 @@ module.exports = function($scope, $http, $location, $rootScope) {
             $scope.map = "";
         });
     };
-
+ refreshMape();
 
 var r = function() {
     $http.get('/movie/movie').success(function(response) {

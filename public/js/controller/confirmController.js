@@ -19,6 +19,13 @@ var refreshConfirm = function () {
 
 refreshConfirm();
 
+$scope.bookingmovi= function (m) {
+                 $rootScope.moviebooking=m;
+// alert($rootScope.moviebooking);
+$location.path('/moviebooking');
+      };
+
+
 $scope.ConfirmBook = function () {
   $scope.confirm.conFilmName=$scope.confirmInfo.FilmName;
   $scope.confirm.conCityName=$scope.confirmInfo.CityName;

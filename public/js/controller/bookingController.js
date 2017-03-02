@@ -10,12 +10,10 @@ $scope.hall1=function(){
   alert($scope.th);
   console.log($scope.th);
 }
-
 var self = this;
  self.submit = function() {
      console.log('Form is submitted with following user');
 };
-
 var refresh = function() {
     $http.get('/movie/movie').success(function(response) {
         console.log('READ IS SUCCESSFUL');
@@ -243,12 +241,28 @@ refreshSho();
     $scope.addMap = function () {
 
         console.log($scope.map);
+        var t;
+
+for(t=0;t<$scope.moviList.length;t++){
+   if($scope.moviList[t].moviTitle==$scope.map.Film){
+$scope.map.Poster=$scope.moviList[t].moviPoster;
+$scope.map.Year=$scope.moviList[t].moviYear;
+$scope.map.Rating=$scope.moviList[t].moviRating;
+
+
+      }
+}
+
         $http.post('/map/map',$scope.map).success(function (response) {
             console.log(response);
             console.log("CREATE IS SUCCESSFUL");
-
+            refreshMape();
+                  $scope.selloc=false;
+                      $scope.selthr=false;
+                          $scope.seldt=false;
+                            $scope.selst=false;
         });
-          refreshMape();
+
     };
 
     $scope.removeMap = function (id) {

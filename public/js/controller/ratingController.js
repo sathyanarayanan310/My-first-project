@@ -14,6 +14,11 @@ var refreshRate = function() {
 };
 refreshRate();
 
+var self = this;
+ self.submit = function() {
+     console.log('Form is submitted with following user');
+};
+
 var refresh = function() {
     $http.get('/movie/movie').success(function(response) {
         console.log('READ IS SUCCESSFUL');
@@ -76,14 +81,14 @@ refreshRate();
 $scope.confirmRate= function () {
                           console.log("REACHED UPDATE");
                           var i;
-                          for(i=0;i<=$scope.moviList.length;i++){
+                          for(i=0;i<=$scope.maplist.length;i++){
 
-                                  if($scope.moviList[i].moviTitle== $scope.rate.Title){
-                  console.log($scope.moviList[i]._id);
+                                  if($scope.maplist[i].Film== $scope.rate.Title){
+                  console.log($scope.maplist[i]._id);
 
-                            $scope.moviList[i].moviRating=$scope.rate.Total;
-                            console.log($scope.moviList[i]);
-                            $http.put('/movie/movie/' + $scope.moviList[i]._id, $scope.moviList[i]).success(function (response) {
+                            $scope.maplist[i].Rating=$scope.rate.Total;
+                            console.log($scope.maplist[i]);
+                            $http.put('/map/map/' + $scope.maplist[i]._id, $scope.maplist[i]).success(function (response) {
                                 console.log(response);
                                 refresh();
                                 alert("Rating successfull... Thanks for Rating");

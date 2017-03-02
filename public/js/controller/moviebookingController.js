@@ -2,6 +2,7 @@
 
 module.exports = function($scope, $http, $log, $rootScope, $location) {
   $scope.movieinfo = $rootScope.moviebooking;
+  console.log($scope.movieinfo );
   $scope.seatarr = true;
   console.log($scope.movieinfo);
   var date;
@@ -37,14 +38,14 @@ $rootScope.seatArrange=[];
 
     var selected=[];
     var reserved=[];
-    $scope.rows = ['A', 'B', 'C', 'D',];
-       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
+    $scope.rows = ['A', 'B', 'C', 'D','E', 'F', 'G', 'H','I', 'J', 'K', 'L','M','N','O','P','Q','R'    ];
+       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12, 13, 14, 15, 16, 17];
 
-       $scope.rows1 = ['E', 'F', 'G', 'H',];
-          $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
-
-          $scope.rows2 = ['I', 'J', 'K', 'L',];
-             $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
+      //  $scope.rows1 = ['E', 'F', 'G', 'H',];
+      //     $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
+       //
+      //     $scope.rows2 = ['I', 'J', 'K', 'L',];
+      //        $scope.cols2 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
 
 
   $scope.getStatus = function(seatPos) {
@@ -183,37 +184,45 @@ var uniqueTheat=[];
             $scope.maplist = response;
             $scope.map = "";
             for(i = 0; i< $scope.maplist.length; i++){
-                if($scope.maplist[i].Film==$scope.movieinfo.moviTitle){
+                if($scope.maplist[i].Film==$scope.movieinfo.Film){
               if(uniqueNames.indexOf($scope.maplist[i].City) === -1){
                   uniqueObj.push($scope.maplist[i]);
               uniqueNames.push($scope.maplist[i].City);
+
             }
+            console.log(uniqueNames);
+               $scope.locMovie=uniqueNames;
        }
      }
-       console.log(uniqueNames);
+     });
+
+
+ }
+
        $scope.sel=function(){
          var j;
          for( j= 0; j< $scope.maplist.length; j++){
 
-       if($scope.maplist[j].Film==$scope.movieinfo.moviTitle&&$scope.maplist[j].City==$scope.book.CityName){
+       if($scope.maplist[j].Film==$scope.movieinfo.Film&&$scope.maplist[j].City==$scope.book.CityName){
          if(uniqueHall.indexOf($scope.maplist[j].Hall) === -1){
              uniqueTheat.push($scope.maplist[j]);
          uniqueHall.push($scope.maplist[j].Hall);
        console.log(uniqueHall);
+       $scope.loctheat=uniqueHall;
        }}
        }
-       }
-           console.log($scope.locMovie);
-console.log($scope.book.CityName);
-                      console.log(uniqueNames);
-                        console.log(uniqueNames);
-                          console.log($scope.locMovie);
+     };
+//            console.log($scope.locMovie);
+// console.log($scope.book.CityName);
+//                       console.log(uniqueNames);
+//                         console.log(uniqueNames);
+//                           console.log($scope.locMovie);
+//
+//     });
+//
+// };
 
-    });
 
-};
-$scope.locMovie=uniqueNames;
-$scope.loctheat=uniqueHall;
 
       refreshMape();
 
