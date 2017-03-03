@@ -1,6 +1,3 @@
-
-
-
 <style>
 form { margin: 0px 10px; }
 
@@ -28,10 +25,7 @@ h2 {
 </style>
 
 
-
 <div class="row content ">
-
-
 <div class="container"  >
 <div class="row" >
   <div style="margin-top: 12%;">
@@ -43,25 +37,18 @@ h2 {
         <div class="form-group">
 
         </div>
-        <!-- <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div> -->
-        <!-- <div ng-submit="register()"> -->
+
         <div class="form-group">
-          <strong>Email or mobile phone number</strong>
+          <strong>Email</strong>
           <input type="email" maxlength="50" class="form-control" ng-model="loginForm.username" required>
         </div>
         <div class="form-group">
           <strong>Password</strong>
-          <!-- <span class="right"><a href="#">Forgot your password?</a></span> -->
           <input type="password" maxlength="25" class="form-control" ng-model="loginForm.password" required>
         </div>
-        <!-- <div class="form-group">
-          <strong>Mobile Number</strong>
-            <input type="text" minlength="10" maxlength="10" class="form-control" ng-model="registerForm.mobile" minlength="10">
-          </div> -->
         <div class="form-group" style="padding-top: 12px;">
           <button type="submit" class="btn btn-success btn-block" ng-disabled="disabled">Sign in</button>
-                  <!-- <button type="submit" class="btn btn-success" ng-disabled="disabled">Register</button> -->
-        </div>
+          </div>
       </div>
       <div class="form-group divider">
         <hr class="left"><small>New to site?</small><hr class="right">
@@ -73,39 +60,3 @@ h2 {
   </div>
 </div></div>
 </div>
-
-
-<!-- <div class="container">
-<div class="row">
-  <div class="col-md-4" style="margin-top: 12%;">
-  <div class="panel panel-primary">
-    <div class="panel-body">
-      <form method="POST" action="#" role="form">
-        <div class="form-group">
-          <h2>Sign in</h2>
-        </div >
-        <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-        <div ng-submit="login()">
-        <div class="form-group">
-          <strong>Email or mobile phone number</strong>
-          <input type="email" maxlength="50" class="form-control" ng-model="loginForm.username" required>
-        </div>
-        <div class="form-group">
-          <strong>Password</strong>
-          <span class="right"><a href="">Forgot your password?</a></span>
-          <input type="password" maxlength="25" class="form-control" ng-model="loginForm.password" required>
-        </div>
-        <div class="form-group" style="padding-top: 12px;">
-          <button type="submit" class="btn btn-success btn-block" ng-disabled="disabled">Sign in</button>
-        </div>
-      </div>
-        <div class="form-group divider">
-          <hr class="left"><small>New to site?</small><hr class="right">
-        </div>
-        <p class="form-group"><a href="#/register" class="btn btn-info btn-block">Create an account</a></p>
-        <p class="form-group">By signing in you are agreeing to our <a href="">Terms of Use</a> and our <a href="">Privacy Policy</a>.</p>
-      </form>
-    </div>
-  </div>
-</div>
-</div></div></div> -->

@@ -1,6 +1,6 @@
+
 <style>
 body{margin:40px;}
-
 
 .btn-circle {
   width: 30px;
@@ -461,17 +461,44 @@ myApp.directive("datepicker", function () {
     }
   }
 });
+$(document).ready(function () {
+
+    $(".next-step").click(function (e) {
+
+        var $active = $('.nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.nav-tabs li.active');
+        prevTab($active);
+
+    });
+});
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
 </script>
 
 
-<div class="container" style="margin-top: 170px; margin-left: -1%;">
+
+<div class="container">
+  <button type="button" class="btn btn-primary" style="margin-left: 40%;margin-top: 5%;"><h2>ADMIN PAGE</h2></button>
+  <div style="margin-top: 60px; margin-left: -1%;">
+
+
 	<div class="row">
 		<div class="col col-sm-3">
     	    <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
-                <li role="presentation" class="active"><a data-target="#show" aria-controls="show" role="tab" data-toggle="tab" class="disabled">Show Times</a></li>
-                <li role="presentation"><a data-target="#location" aria-controls="location" role="tab" data-toggle="tab">Locations</a></li>
-                <li role="presentation"><a data-target="#theater" aria-controls="theater" role="tab" data-toggle="tab">Theaters</a></li>
-                <li role="presentation"><a data-target="#movies" aria-controls="movies" role="tab" data-toggle="tab">Movies</a></li>
+                <li role="presentation" class="active"><a data-target="#show" aria-controls="show" role="tab" data-toggle="tab" class="disabled">Add Show Times</a></li>
+                <li role="presentation"><a data-target="#location" aria-controls="location" role="tab" data-toggle="tab">Add Cities</a></li>
+                <li role="presentation"><a data-target="#theater" aria-controls="theater" role="tab" data-toggle="tab">Add Theaters</a></li>
+                <li role="presentation"><a data-target="#movies" aria-controls="movies" role="tab" data-toggle="tab">Add Movies</a></li>
                 <li role="presentation"><a data-target="#mapping" aria-controls="mapping" role="tab" data-toggle="tab">Assign Movies With Theater</a></li>
             </ul>
 		</div>
@@ -482,12 +509,11 @@ myApp.directive("datepicker", function () {
                   <form class="form" name="myForm" style="margin-top: 6%;" ng-submit="addShow()">
 <table class="table">
   <tbody>
-
+<button type="button" class="btn btn-primary" style="margin-left: %;margin-top: -6%;width: 100%;"><h2>Showtimes</h2></button>
                   <tr><td><b>Show time<b></td>
                   <td><input ng-model="tim.showTime" class="form-control" required/></td><tr>
                   <tr><td></td><td><button ng-click="addShow()" type="button" ng-disabled="myForm.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok" ></i></button>
                   <button type="button" ng-click="updateShow()" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-upload"></i></button></td></tr>
-
 
                 </tbody>
                 </table></form>
@@ -508,7 +534,7 @@ myApp.directive("datepicker", function () {
                   <table class="table">
                     <tbody>
 
-
+<button type="button" class="btn btn-primary" style="margin-left: %;margin-top: -6%;width: 100%;"><h2>Cities</h2></button>
                 <tr><td><b>City Name<b></td>
                 <td><input ng-model="loc.cityName" class="form-control" minlength="3" required/></td></tr>
                 <tr><td></td><td><button ng-click="addCity()" type="button" ng-disabled="myForm1.$invalid" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
@@ -528,12 +554,12 @@ myApp.directive("datepicker", function () {
               </table></div>
 
 
-
                 <div role="tabpanel" class="tab-pane fade" id="theater">
                   <form class="form" name="myForm2" style="margin-top: 5%;" ng-submit="addTheater()">
 
                   <table class="table">
                   <tbody>
+                    <button type="button" class="btn btn-primary" style="margin-left: %;margin-top: -6%;width: 100%;"><h2>Theaters</h2></button>
                 <tr><td><b>Theater Name<b></td><td><input ng-model="thtre.TheaterName" class="form-control" required/></td></tr>
                 <tr><td><b>City<b></td><td><select class="form-control" ng-model="thtre.location" required>
                 <option ng-repeat="loc in loclist" required>{{loc.cityName}}</option>
@@ -576,20 +602,11 @@ myApp.directive("datepicker", function () {
 
 
 
-
-
-
-
-
-
-
-<!-- <div class="row tab-cont
-ent"> -->
                 <div role="tabpanel" class="tab-pane fade" id="movies">
                     <form class="form" name="myForm3" style="margin-top: 5%;" ng-submit="addMovie()">
                       <table class="table">
                       <tbody>
-
+<button type="button" class="btn btn-primary" style="margin-left: %;margin-top: -6%;width: 100%;"><h2>Movies</h2></button>
                 <tr><td><b>Movie Name<b></td><td><input ng-model="movi.moviTitle" class="form-control" required/></td></tr>
                 <tr><td><b>Year<b></td><td><input ng-model="movi.moviYear" class="form-control" required/></td></tr>
                 <tr><td></td>
@@ -626,22 +643,19 @@ ent"> -->
                 <td>{{m.moviPlot}}</td>
                 <td><img src="{{m.moviPoster}}" style="width:100px;height:100px;"></td>
                 <td><button ng-click="removeMovie(m)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i></button></td>
-                <!-- <td><button ng-click="removeMovie(m)" class="btn btn-danger">Remove</button></td> -->
-                <!-- <td><button ng-click="editMovie(m)" class="btn btn-primary">Edit</button></td> -->
+
               <td><button ng-click="editMovie(m)" type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-edit"></i></button></td>
                 </tr>
                 </tbody>
                 </table>
-                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum -->
                 </div>
-<!-- </div> -->
-
 
                 <div role="tabpanel" class="tab-pane fade" id="mapping">
 
                   <form class="form" name="myForm5" style="margin-top: 5%;" ng-submit="addMap()">
                     <table class="table">
                     <tbody>
+                      <button type="button" class="btn btn-primary" style="margin-left: %;margin-top: -6%;width: 100%;"><h2>Assign Movies with Theater</h2></button>
                 <tr><td><b>Movie</b></td><td><select class="form-control" ng-change="moviclick()" name="movie" ng-model="map.Film" required>
                 <option ng-repeat="m in moviList">{{m.moviTitle}}</option>
               </select></td></tr>
@@ -659,10 +673,7 @@ ent"> -->
                     <option ng-repeat="t in th.showtime" value={{t}}>{{t}}</option>
                   </optgroup>
                 </select>
-                <tr><div id="wrapper" ng-app="myApp">
-  <p>{{datePicker || "00/00/0000"}}</p>
-  <input type="text" ng-model="datePicker" datepicker />
-</div>
+                <tr>
 
                   <td><b>date<b></td><td><input type="date" class="form-control" ng-model="map.From" required></td></tr>
 
@@ -706,39 +717,12 @@ ent"> -->
     <div class="row">
         <ul class="list-inline pull-right">
           <li><button type="button" class="btn btn-default btn-circle btn-xl prev-step"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <!-- <li><button type="button" class="btn btn-default prev-step">Previous</button></li> -->
+
             <li><button type="button" class="btn btn-default btn-circle btn-xl next-step"><i class="glyphicon glyphicon-chevron-right"></i></button>
 
-            <!-- <li><button type="button" class="btn btn-default next-step">Next</button></li> -->
+
             <li><button type="button" class="btn btn-primary btn-circle btn-xl"><a href="#/home" style="color: white;"><i class="glyphicon glyphicon-ok"></i></a></button></li>
-            <!-- <li><button type="button" class="btn btn-default btn-circle btn-xl next-step"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <li><button type="button" class="btn btn-primary"><a href="#/home" style="color: white;">Save</a></button></li> -->
+
         </ul>
     </div>
 </div>
-
-
-<script>
-$(document).ready(function () {
-
-    $(".next-step").click(function (e) {
-
-        var $active = $('.nav-tabs li.active');
-        $active.next().removeClass('disabled');
-        nextTab($active);
-
-    });
-    $(".prev-step").click(function (e) {
-
-        var $active = $('.nav-tabs li.active');
-        prevTab($active);
-
-    });
-});
-function nextTab(elem) {
-    $(elem).next().find('a[data-toggle="tab"]').click();
-}
-function prevTab(elem) {
-    $(elem).prev().find('a[data-toggle="tab"]').click();
-}
-</script>

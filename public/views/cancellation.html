@@ -9,27 +9,28 @@ body{margin:40px;}
   border-radius: 35px;
 }
 </style>
-<div class="container" style="margin-top: 150px;">
-<div class="table-responsive">
+<div class="container" style="margin-top: 100px;">
+  <div>
+  <button type="button" class="btn btn-primary" style="margin-left: 30%;width: 33%;"><h2><b>Booking Cancellation<b></h2></button></div>
+    <form class="form" name="myForm5" style="margin-top: 5%;" ng-submit="showdetails()">
+<div class="table-responsive" style="margin-top:3%">
   <table class="table">
-    <h1>
-      Booking Cancellation </h1>
+    <!-- <h1>Booking Cancellation </h1> -->
 <tr>
 
   <td>BOOKING ID</td>
-  <td><input type="text" ng-model="idNo"></td>
+  <td><input type="text" ng-model="idNo" class="form-control" required></td>
 
   </tr>
   <tr>
     <td>MOVIE NAME</td>
-    <td><input type="text" ng-model="movie"></td>
+    <td><input type="text" ng-model="movie" class="form-control" required></td>
   </tr>
   <tr>
     <td>
     </td>
     <td>
-      <button type="button" ng-click="showdetails()" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
-      <!-- <button type="button" ng-click="showdetails()" class="btn btn-danger">CHECK DETAILS</button> -->
+      <button type="button" ng-click="showdetails()" ng-disabled="myForm5.$invalid" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
     </td>
 
   </tr>
@@ -37,9 +38,9 @@ body{margin:40px;}
  </table>
 
 <div ng-show="showd">
-
+<div class="table-responsive">
      <table class="table">
-       <tbody style="display:table-caption;margin-left:57px;padding:10px">
+       <tbody>
 
         <tr>
           <td><b>TITLE<b></td><td>{{cancellist.conFilmName}}</td></tr>
@@ -56,15 +57,16 @@ body{margin:40px;}
         <tr>
       <td><b>AMOUNT<b></td><td>{{cancellist.conAmount}}</td></tr>
         <tr>
-<td><button type="button" class="btn btn-danger btn-circle btn-xl"><a href="#/home" style="color: white;"><i class="glyphicon glyphicon-remove"></i></a>
+<td></td><td><button type="button" class="btn btn-danger btn-circle btn-xl" style="margin-left: -10%;"><a href="#/home" style="color: white;"><i class="glyphicon glyphicon-remove"></i></a>
   <!-- <button type="button" class="btn btn-danger">BACK</button> -->
-</td>
-<td><button type="button" ng-click="cancelBook(cancellist)" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
+
+<button type="button" ng-click="cancelBook(cancellist)" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
   <!-- <button type="button" ng-click="cancelBook(cancellist)" class="btn btn-danger">CANCEL</button> -->
 </td></tr>
 
    </tbody>
     </table>
   </div>
+</div>
 </div>
 </div>

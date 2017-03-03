@@ -179,13 +179,18 @@ $(document).ready(function(){
 </script>
 
 
-<div class="container-fluid">
-  <h1>Rating&Review</h1>
-	<div class="row">
+<div class="container-fluid" style="margin-top: 5%;">
+  <div>
+  <button type="button" class="btn btn-primary" style="margin-left: 34%;width: 33%;"><h2><b>Review&Rating<b></h2></button></div>
+
+	<div class="row" style="margin-top:3%" >
 		<div class="col-md-4">
         <img src="{{movieinfo.Poster}}" style="width: 350px;height: 460px;float: left;">
 		</div>
+
+
 		<div class="col-md-4">
+      <form class="form" name="myForm5" style="margin-top: 5%;" ng-submit="doneRate()">
       <div class="table-responsive">
         <table class="table">
           <tr>
@@ -249,7 +254,7 @@ $(document).ready(function(){
           <form>
           <div class="form-group">
 
-            <textarea ng-model="rate.comments" class="form-control" rows="5" cols="3" id="comment" placeholder="Write your comments here..."></textarea>
+            <textarea ng-model="rate.comments" class="form-control" rows="5" cols="3" id="comment" placeholder="Write your comments here..." required></textarea>
           </div>
 
           </form>
@@ -257,12 +262,14 @@ $(document).ready(function(){
       </tr>
       <tr>
         <td></td>
-        <td><button ng-click="doneRate()"  class="btn btn-primary">SUBMIT</button><button ng-click="confirmRate()"  class="btn btn-primary" style="margin-left: 40px;">DONE</button></td>
+        <td><button ng-click="doneRate()" ng-disabled="myForm5.$invalid" class="btn btn-primary">SUBMIT</button><button ng-click="confirmRate()"  class="btn btn-primary" style="margin-left: 40px;">DONE</button></td>
       </tr>
 
       </table>
       </div>
-		</div>
+
+  </form>
+  </div>
 		<div class="col-md-4">
       <div class="container">
 
@@ -280,12 +287,12 @@ $(document).ready(function(){
 
   <h2>Users Review</h2>
 
-<div style="border:1px solid black;width:400px;height:350px;overflow:auto">
+<div style="border:0px solid black;width:400px;height:350px;overflow:auto">
 
 
       <div class="row" ng-repeat="rate in rateList|filter:moviebooking.Film">
   			<div class="col-sm-12">
-  				<hr/>
+
   				<div class="review-block">
   					<div class="row">
   						<div class="col-sm-6">
