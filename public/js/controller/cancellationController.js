@@ -1,7 +1,10 @@
 'use strict';
 
 module.exports = function($scope,$http,$location) {
-
+  var self = this;
+   self.submit = function() {
+       console.log('Form is submitted with following user');
+  };
 console.log($scope.idNo);
 console.log($scope.movie);
 $scope.showd=false;
@@ -30,7 +33,6 @@ $scope.showdetails = function() {
 
 
 }
-
 
   $scope.cancelBook = function(id) {
     $http.delete('/con/con/' + id._id).success(function(response) {

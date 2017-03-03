@@ -11,6 +11,10 @@ $scope.seat=false;
 var i;
 $rootScope.seatArrange=[];
   // console.log($scope.movieinfo);
+  var self = this;
+   self.submit = function() {
+       console.log('Form is submitted with following user');
+  };
 
   var refreshBookin = function () {
         $http.get('/book/book').success(function (response) {
@@ -21,6 +25,8 @@ $rootScope.seatArrange=[];
     };
 
     refreshBookin();
+
+
 
     var refreshConfirm = function () {
 
@@ -39,7 +45,7 @@ $rootScope.seatArrange=[];
     var selected=[];
     var reserved=[];
     $scope.rows = ['A', 'B', 'C', 'D','E', 'F', 'G', 'H','I', 'J', 'K', 'L','M','N','O','P','Q','R'    ];
-       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12, 13, 14, 15, 16, 17];
+       $scope.cols = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,];
 
       //  $scope.rows1 = ['E', 'F', 'G', 'H',];
       //     $scope.cols1 = [ 1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10];
@@ -93,7 +99,7 @@ console.log(no);
               console.log($scope.confirmlist);
  date=document.getElementById("datebook").value;
               $scope.book.Day=date;
-              $scope.book.FilmName=$scope.movieinfo.moviTitle;
+              $scope.book.FilmName=$scope.movieinfo.Film;
  console.log($scope.book.FilmName);
              console.log($scope.book.CityName);
              console.log($scope.book.HallName);
@@ -144,10 +150,11 @@ while(arr.length < 1){
 $scope.book.bookingid= arr;
 // $scope.book.bookingid= arr;
                 date=document.getElementById("datebook").value;
-                $scope.book.FilmName=$scope.movieinfo.moviTitle;
+                $scope.book.FilmName=$scope.movieinfo.Film;
               $scope.book.seatNo=selected;
-              var amt=parseInt($scope.Amount);
-              $scope.book.totalAmount=  amt*selected.length;
+              // var amt=parseInt($scope.Amount);
+              $scope.book.totalAmount=  100*selected.length;
+              console.log(  $scope.book.totalAmount);
               $scope.book.Day=date;
               // console.log($scope.book.seatNo);
                   console.log($scope.book);
@@ -212,15 +219,25 @@ var uniqueTheat=[];
        }}
        }
      };
-//            console.log($scope.locMovie);
-// console.log($scope.book.CityName);
-//                       console.log(uniqueNames);
-//                         console.log(uniqueNames);
-//                           console.log($scope.locMovie);
-//
-//     });
-//
-// };
+
+     var uniqueshow=[];
+     var uniqueTime=[];
+
+     $scope.selshow=function(){
+       var m;
+       for( m= 0; m< $scope.maplist.length; m++){
+
+     if($scope.maplist[m].Film==$scope.movieinfo.Film&&$scope.maplist[m].City==$scope.book.CityName&&$scope.maplist[m].Hall==$scope.book.HallName){
+       if(uniqueHall.indexOf($scope.maplist[m].showtime) === -1){
+           uniqueshow.push($scope.maplist[m]);
+       uniqueTime.push($scope.maplist[m].showtime);
+     console.log(uniqueTime);
+     $scope.Showtee=uniqueTime;
+     }
+   }
+     }
+   };
+
 
 
 

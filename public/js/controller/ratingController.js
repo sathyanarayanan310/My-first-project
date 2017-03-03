@@ -2,8 +2,10 @@
 
 module.exports = function($scope, $http, $log, $rootScope, $location) {
 $scope.movieinfo = $rootScope.moviebooking;
+// $scope.rate.Title=$scope.movieinfo.Film;
 
-console.log(  $scope.movieinfo );
+
+console.log( $scope.movieinfo );
 
 var refreshRate = function() {
     $http.get('/rt/rt').success(function(response) {
@@ -19,22 +21,23 @@ var self = this;
      console.log('Form is submitted with following user');
 };
 
-var refresh = function() {
-    $http.get('/movie/movie').success(function(response) {
-        console.log('READ IS SUCCESSFUL');
-        $scope.moviList = response;
-        $scope.movi = "";
-        // $scope.movieObj=$scope.moviList;
-    });
-};
+  var refreshMape = function () {
+        $http.get('/map/map').success(function (response) {
+            console.log('READ IS SUCCESSFUL');
+            $scope.maplist = response;
+            $scope.map = "";
+        });
+    };
 
-refresh();
+    refreshMape();
+
+
 var cnt=0;
 
 $scope.doneRate= function () {
-  $scope.rate.Title=$scope.movieinfo.moviTitle;
-$scope.rate.moviYear=$scope.movieinfo.moviYear;
-  $scope.rate.moviLanguage=$scope.movieinfo.moviLanguage;
+  $scope.rate.Title=$scope.movieinfo.Film;
+$scope.rate.moviYear=$scope.movieinfo.Year;
+  $scope.rate.moviLanguage=$scope.movieinfo.Language;
   // var mname=$scope.rate.Title;
   $http.post('/rt/rt', $scope.rate).success(function (response) {
             console.log(response);
